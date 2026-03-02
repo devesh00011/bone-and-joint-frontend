@@ -9,10 +9,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
     const [menuOpen, setMenuOpen] = useState(false)
     const [servicesMenu, setServicesMenu] = useState(false)
 
-    // prevent background scroll
-    useEffect(() => {
-        document.body.style.overflow = menuOpen ? 'hidden' : 'auto'
-    }, [menuOpen])
+
 
     const data = [
         "Knee Replacement Surgery",
@@ -33,6 +30,13 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
     return (
         <div className="lg:hidden block relative z-50">
 
+            {/* fixed bottom buttons */}
+
+            <div className='fixed bottom-0 grid grid-cols-2 w-full shadow-2xl'>
+                <button onClick={() => setAppointmentModel(true)} className='bg-[#0B1C2D]/95 text-white w-full py-4 border-r-2'>Book </button>
+                <Link href={'tel:+918079092775'}><button className='bg-[#0B1C2D]/95 text-white w-full py-4'>Call Us</button></Link>
+            </div>
+
             {/* OVERLAY */}
             <div
                 className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-40 transition-opacity duration-300
@@ -41,8 +45,8 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
             />
 
             {/* TOP BAR */}
-            <div className="flex items-center justify-between px-4 py-6 text-white">
-                <Link href="/" className="flex items-center gap-2 font-bold text-white">
+            <div className="flex items-center justify-between px-2 py-1 text-white">
+                <Link href="/" className="flex items-center font-bold text-white">
                     <Image
                         src="/logo-white.PNG"
                         alt="Hospital Logo"
@@ -51,7 +55,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                         className="object-cover rounded-full"
                         priority
                     />
-                    <p className="text-xl font-extrabold">
+                    <p className="text-lg font-extrabold">
                         Bone & Joint Hospital
                     </p>
                 </Link>
@@ -63,13 +67,12 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
 
             {/* DRAWER */}
             <div
-                className={`fixed top-0 right-0 h-screen w-full bg-white z-50
-  transform transition-transform duration-300 ease-in-out
-  ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed top-0 overflow-y-scroll overflow-x-hidden h-screen w-full bg-white z-50 duration-300 ease-in-out
+  ${menuOpen ? "right-0" : "-right-full"}`}
             >
                 <div className="flex items-center justify-between py-8 px-4 border-b border-gray-300">
-                    <p className="text-3xl font-extrabold">
-                        Bone & Joint Hospital 
+                    <p className="text-xl font-extrabold">
+                        Bone & Joint Hospital
                     </p>
                     <button onClick={() => setMenuOpen(false)}>
                         <IoClose size={26} />
@@ -80,6 +83,8 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                     <ul className="space-y-6 text-[19px] font-medium ">
                         {[
                             { name: 'Home', path: '/' },
+                            { name: 'Doctors', path: '/doctors' },
+
                             { name: 'About Us', path: '/about' },
                             { name: 'Contact Us', path: '/contact' },
                         ].map((item) => (
@@ -91,9 +96,8 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                             </li>
                         ))}
                         <li onClick={() => setServicesMenu(!servicesMenu)} className="">
-                            <Link href={"/"}>
-                                Services
-                            </Link>
+                            Services
+
                             <div className="w-10 rounded-full h-[3] mt-1 bg-[#00B4D8]"></div>
                             <div
                                 className={`${servicesMenu
@@ -104,7 +108,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                                 <ul className="py-2">
                                     {data.map((item, index) => {
                                         return (
-                                            <Link key={index} href={`/departments/${item.replace(/ /g, "-")}`}><li onClick={() => setMenuOpen(false)} key={index} className="text-[15px] font-medium text-gray-700 py-3 px-3 hover:bg-blue-100 hover:text-blue-700 hover:pl-5 transition-all duration-200 cursor-pointer rounded-md">
+                                            <Link key={index} href={`/services/${item.replace(/ /g, "-")}`}><li onClick={() => setMenuOpen(false)} key={index} className="text-[15px] font-medium text-gray-700 py-3 px-3 hover:bg-blue-100 hover:text-blue-700 hover:pl-5 transition-all duration-200 cursor-pointer rounded-md">
                                                 {item}
                                                 <div className="w-5 rounded-full h-[3] mt-1 bg-[#00B4D8]"></div>
                                             </li></Link>
@@ -116,8 +120,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                     </ul>
 
                     <div className="mt-8 space-y-4">
-                        <Link
-                            href="/appointment"
+                        <button
                             onClick={() => {
                                 setMenuOpen(false)
                                 setAppointmentModel(true)
@@ -125,7 +128,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                             className="block w-full bg-[#00B4D8] text-white py-3 rounded-full text-center font-semibold hover:bg-[#00B4D8]"
                         >
                             Book Appointment
-                        </Link>
+                        </button>
 
                         <a
                             href="tel:+919999999999"

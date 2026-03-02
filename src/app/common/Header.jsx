@@ -16,6 +16,15 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+
+  const blank_state = () => {
+    setAppointmentModel(false)
+    setselectedTab(null)
+    setSelectedDoctor(null)
+    setQrCodeOpen(false)
+    setPaymentMethod(null)
+  }
+
   return (
     <>
       {/* Appointment Modal */}
@@ -27,13 +36,17 @@ export default function Header() {
       {/* Header */}
       <header
         className={`
-          sticky top-0 left-0 w-full z-50 transition-all duration-300
+          sticky top-0 w-full z-50 transition-all duration-300
           ${scrolled
-            ? 'bg-[#0B1C2D]/95 shadow-2xl backdrop-blur-lg'
-            : 'bg-black/90 backdrop-blur-xl shadow-2xl'
+            ? 'bg-[#0B1C2D]/95 shadow-2xl'
+            : 'bg-black/90 shadow-2xl'
           }
         `}
       >
+
+        {appointmentModel &&
+          <div onClick={blank_state} className='w-full h-screen bg-black/90 fixed top-0 left-0 z-888  '></div>
+        }
 
 
         {/* Main Header */}

@@ -11,14 +11,14 @@ import Insurance from "./home/Insurance";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <Hero />
       <AboutUs />
       <Doctors />
       <OurServices />
       <BookAppointmentCTA />
       <WhyChooseUs />
-      <Insurance/>
+      <Insurance />
       <Testimonials />
       <Faqs />
     </div>

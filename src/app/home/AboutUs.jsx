@@ -46,7 +46,7 @@ export default function AboutUs() {
 
 
                         {/* HIGHLIGHTS */}
-                        <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-5">
+                        <div className="mt-8 grid sm:grid-cols-2 grid-cols-1 gap-x-3 gap-y-5">
 
                             {Highlights.map((item, index) => {
                                 return (
@@ -54,7 +54,7 @@ export default function AboutUs() {
                                         <span className="w-2.5 h-2.5 mt-2 bg-[#00B4D8] rounded-full " />
                                         <span className="text-gray-50 lg:text-[15px] text-sm group-hover:text-[#00B4D8] duration-300">
                                             {item}
-                                            <div className='w-[20%] group-hover:w-[50%] group-hover:bg-[#00B4D8] duration-300 h-[2.5] mt-2 rounded-full bg-white'></div>
+                                            <div className='w-[30%] group-hover:w-[50%] group-hover:bg-[#00B4D8] duration-300 h-[2.5] mt-2 rounded-full bg-white'></div>
                                         </span>
                                     </div>
                                 )

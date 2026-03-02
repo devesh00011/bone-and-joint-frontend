@@ -1,4 +1,5 @@
 'use client'
+import { Doctors } from "@/app/api_data/Doctors";
 import { get_api } from "@/app/api_helper/api_helper";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,25 +10,27 @@ export default function DoctorPage() {
     const { slug } = useParams();   // ✅ correct way
     console.log('slug', slug)
 
-    const specificDocData = async () => {
-        try {
-            const res = await get_api({
-                params: slug,
-                path: 'doctor/specific'
-            })
-            console.log(res)
-        } catch (error) {
-            return console.error(error)
-        }
-    }
+    // const specificDocData = async () => {
+    //     try {
+    //         const res = await get_api({
+    //             params: slug,
+    //             path: 'doctor/specific'
+    //         })
+    //         console.log(res)
+    //     } catch (error) {
+    //         return console.error(error)
+    //     }
+    // }
 
-    // const { name, specialization, qualification, experience, hospital_role, image, achievements, services, description, rating } = specificDocData
+    const specificDocData = Doctors.filter((item, index) => item.doctor_slug == slug)[0]
 
-    useEffect(() => {
-        if (slug) {
-            specificDocData();
-        }
-    }, [slug]);
+    const { name, specialization, qualification, experience, hospital_role, image, achievements, services, description, rating } = specificDocData
+
+    // useEffect(() => {
+    //     if (slug) {
+    //         specificDocData()
+    //     }
+    // }, [slug]);
 
     return (
         <div className=" text-white">
@@ -49,7 +52,7 @@ export default function DoctorPage() {
                             name
                         </span>
                     </p>
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 gap-12 items-center p-3">
 
                         {/* Doctor Image */}
                         <div className="relative">
@@ -65,17 +68,17 @@ export default function DoctorPage() {
 
                         {/* Doctor Info */}
                         <div>
-                            <h1 className="text-5xl font-bold mb-4 leading-tight">
-                                name
+                            <h1 className="lg:text-5xl text-4xl font-bold mb-4 leading-tight">
+                                {name}
                             </h1>
 
                             <p className="text-[#00B4D8] text-xl font-semibold mb-4">
-                                Senior Consultant & Advanced Specialist
+                                {specialization}
                             </p>
 
                             <div className="flex items-center gap-3 mb-6">
                                 <span className="bg-linear-to-l from-[#00B4D8] to-[#006275] text-white px-4 py-2 rounded-full text-sm">
-                                    ⭐ rating Rating
+                                    ⭐ {rating} Rating
                                 </span>
                                 <span className="bg-white text-[#0B1C2D] px-4 py-2 rounded-full text-sm font-semibold">
                                     experience
@@ -83,7 +86,7 @@ export default function DoctorPage() {
                             </div>
 
                             <p className="text-gray-300 leading-relaxed mb-8">
-                                description
+                                {description}
                             </p>
 
                             <div className="flex flex-wrap gap-4">

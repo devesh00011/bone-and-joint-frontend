@@ -47,7 +47,7 @@ export default function DoctorsPage() {
                     <table className="w-full text-left text-[#0B1C2D]">
                         {/* Table Body */}
                         <tbody>
-                            {doctors.map((item, index) => (
+                            {Doctors.map((item, index) => (
                                 <tr
                                     key={index}
                                     className="border-b border-gray-200 hover:bg-gray-50 transition"
@@ -56,8 +56,8 @@ export default function DoctorsPage() {
                                         {item.name}
                                     </td>
 
-                                    <td className="px-6 py-6">
-                                        {item.full_bio}
+                                    <td className="px-6 py-6 md:block hidden">
+                                        {item.specialization}
                                     </td>
 
                                     <td className="px-6 py-6 text-sm text-gray-600">
@@ -67,7 +67,7 @@ export default function DoctorsPage() {
                                     <td className="px-6 py-6 text-center">
                                         {index < 4 ? (
                                             <Link
-                                                href={`/doctors/${item.slug}`}
+                                                href={`/doctors/${item.doctor_slug}`}
                                                 className="bg-[#00B4D8] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#0096c7] transition"
                                             >
                                                 View

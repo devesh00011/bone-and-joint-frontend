@@ -1,8 +1,8 @@
 export const Doctors = [
     {
-        name: 'Dr. Hariram Vishnoi',
-        specialization: 'Trauma & Fracture Surgeon',
-        doctor_slug: 'dr-hariram-vishnoi',
+        name: 'Dr. Kamlesh Malviya',
+        specialization: 'Joint replacement Surgeon',
+        doctor_slug: 'dr-kamlesh-malviya',
         qualification: 'MBBS, MS (Orthopaedics)',
         experience: '18+ Years Experience',
         hospital_role: 'Senior Consultant Orthopaedic Surgeon',
@@ -28,7 +28,7 @@ export const Doctors = [
 
     {
         name: 'Dr. Rajnish Sharma',
-        specialization: 'Arthroscopy Surgeon',
+        specialization: 'Arthroscopy & Arthoplasty Surgeon',
         doctor_slug: 'dr-rajnish-sharma',
         qualification: 'MBBS, MS (Ortho), Fellowship in Arthroscopy',
         experience: '14+ Years Experience',
@@ -54,9 +54,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. Kamlesh Malviya',
-        specialization: 'Joint Replacement Surgeon',
-        doctor_slug: 'dr-kamlesh-malviya',
+        name: 'Dr. Deepak Shekhawat',
+        specialization: 'Spine Surgeon (Minimal)',
+        doctor_slug: 'dr-deepak-shekhawat',
         qualification: 'MBBS, MS (Ortho), Fellowship in Joint Replacement',
         experience: '20+ Years Experience',
         hospital_role: 'Senior Joint Replacement Specialist',
@@ -81,9 +81,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. Deepak Singh Shekhawat',
-        specialization: 'Spine Surgeon',
-        doctor_slug: 'dr-deepak-singh-shekhawat',
+        name: 'Dr. Hariram Vishnoi',
+        specialization: 'Complex Fracture Surgeon',
+        doctor_slug: 'dr-hariram-vishnoi',
         qualification: 'MBBS, MS (Ortho), Spine Fellowship',
         experience: '16+ Years Experience',
         hospital_role: 'Consultant Spine Specialist',
@@ -108,9 +108,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. Harshit Gehlot',
-        specialization: 'Consultant Orthopaedic Surgeon',
-        doctor_slug: 'dr-harshit-gehlot',
+        name: 'Dr. Gaurav Agarwal',
+        specialization: 'Anesthesia intensivist & Critical care specialist',
+        doctor_slug: 'dr-gaurav-agarwal',
         qualification: 'MBBS, MS (Orthopaedics)',
         experience: '10+ Years Experience',
         hospital_role: 'Orthopaedic Consultant',
@@ -133,9 +133,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. Saurabh Kuwera',
-        specialization: 'Consultant Orthopaedic Surgeon',
-        doctor_slug: 'dr-saurabh-kuwera',
+        name: 'Dr. K K SHARMA',
+        specialization: 'Plastic & Reconstruction Surgeon',
+        doctor_slug: 'dr-k-k-sharma',
         qualification: 'MBBS, MS (Orthopaedics)',
         experience: '9+ Years Experience',
         hospital_role: 'Orthopaedic Consultant',
