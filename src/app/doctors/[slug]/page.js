@@ -59,7 +59,7 @@ export default function DoctorPage() {
                             <div className="absolute -top-6 -left-6 w-full h-full border-4 border-[#00B4D8] rounded-2xl"></div>
                             <Image
                                 src="/d1.jpg"
-                                // alt={name}
+                                alt={name}
                                 width={400}
                                 height={400}
                                 className="rounded-2xl shadow-2xl relative z-10 w-full h-[400] object-cover"

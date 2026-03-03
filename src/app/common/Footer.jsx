@@ -1,11 +1,15 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Image from 'next/image';
+import BookAppointMentModel from './BookAppointMentModel';
 
 export default function Footer() {
     return (
         <footer className="bg-[#0b1c2d] text-gray-300">
+
+            <BookAppointMentModel />
 
             {/* TOP FOOTER */}
             <div className="max-w-330 mx-auto px-4 py-16">
@@ -23,7 +27,7 @@ export default function Footer() {
                                 priority
                             />
                             <p className="text-2xl font-extrabold text-white">
-                                Bone & <span className="text-[#00B4D8]">Joint</span> Hospital
+                                Bone & Joint Hospital
                             </p>
                         </Link>
                         <p className="mt-3 text-sm leading-relaxed text-gray-400">
@@ -48,8 +52,8 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="hover:text-[#00B4D8] duration-200">
-                                    About Us
+                                <Link href="/doctors" className="hover:text-[#00B4D8] duration-200">
+                                    Doctors
                                 </Link>
                             </li>
                             <li>
@@ -58,10 +62,11 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/appointment" className="hover:text-[#00B4D8] duration-200">
-                                    Book Appointment
+                                <Link href="/about" className="hover:text-[#00B4D8] duration-200">
+                                    About Us
                                 </Link>
                             </li>
+
                             <li>
                                 <Link href="/contact" className="hover:text-[#00B4D8] duration-200">
                                     Contact Us
@@ -123,7 +128,7 @@ export default function Footer() {
 
             {/* BOTTOM FOOTER */}
             <div className="border-t border-white/10">
-                <div className="max-w-330 mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 gap-3">
+                <div className="max-w-330 mx-auto px-4 pb-10 pt-5 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 gap-3">
                     <p>
                         © {new Date().getFullYear()} Bone & Joint Hospital. All Rights Reserved.
                     </p>

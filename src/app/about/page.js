@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Doctors } from '../api_data/Doctors'
 
 export default function About() {
     return (
@@ -8,7 +9,7 @@ export default function About() {
             <section className="w-full bg-white">
 
                 {/* ================= HERO SECTION ================= */}
-                <div className="relative w-full h-[500]">
+                <div className="relative w-full h-[550]">
 
                     <Image
                         alt="hospital banner image"
@@ -20,7 +21,7 @@ export default function About() {
 
                     <div className="absolute inset-0 bg-[#0B1C2D]/75"></div>
 
-                    <div className="absolute inset-0 flex py-16">
+                    <div className="absolute inset-0 flex py-10">
                         <div className="max-w-[1320] mx-auto lg:px-0 px-4 w-full">
 
                             <h2 className="text-4xl md:text-5xl font-extrabold text-white">
@@ -45,13 +46,13 @@ export default function About() {
 
             </section>
 
-            <section className="w-full bg-white"> <div className="max-w-[1320] mx-auto px-6 py-20">
+            <section className="w-full bg-white"> <div className="max-w-[1320] mx-auto px-6 lg:py-20 py-10">
 
-                <h3 className="lg:text-5xl text-4xl  font-bold text-gray-800 text-center mb-14">
+                <h3 className="lg:text-5xl text-4xl  font-bold text-gray-800 text-center lg:mb-14 mb-5">
                     Our Services
                 </h3>
 
-                <div className="grid md:grid-cols-4 gap-8">
+                <div className="grid md:grid-cols-4 grid-cols-2 gap-4">
 
                     {[
                         "Joint Replacement Surgery",
@@ -65,7 +66,7 @@ export default function About() {
                     ].map((service, index) => (
                         <div
                             key={index}
-                            className="bg-[#0B1C2D] text-white p-6 rounded-xl text-center hover:bg-[#00B4D8] transition"
+                            className="bg-[#0B1C2D] shadow-lg text-white p-6 rounded-xl text-center hover:bg-[#00B4D8] transition"
                         >
                             {service}
                         </div>
@@ -77,9 +78,9 @@ export default function About() {
 
 
             <section className='w-full bg-white'>
-                <div className="max-w-[1320] mx-auto px-6 py-20">
+                <div className="max-w-[1320] mx-auto px-6 lg:py-20 py-10">
 
-                    <h3 className="lg:text-5xl text-4xl font-bold text-gray-800 text-center mb-14">
+                    <h3 className="lg:text-5xl text-4xl font-bold text-gray-800 text-center lg:mb-14 mb-5">
                         Our Experience
                     </h3>
 
@@ -110,17 +111,17 @@ export default function About() {
 
 
             <section className='w-full bg-gray-100'>
-                <div className=" py-20">
+                <div className=" lg:py-20 py-10">
                     <div className="max-w-[1320] mx-auto px-6">
 
                         <h3 className="lg:text-5xl text-4xl font-bold text-gray-800 text-center mb-14">
                             Our Expert Doctors
                         </h3>
 
-                        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
+                        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10">
 
-                            {[1, 2, 3, 4].map((item) => (
-                                <div key={item} className="bg-white rounded-2xl shadow-xl p-6 text-center">
+                            {Doctors.map((item,index) => (
+                                <div key={index} className="bg-white rounded-2xl shadow-xl p-6 text-center">
                                     <div className="relative w-full h-[250] rounded-xl overflow-hidden mb-4">
                                         <Image
                                             src="/d1.jpg"
@@ -131,11 +132,14 @@ export default function About() {
                                     </div>
 
                                     <h4 className="text-xl font-bold text-gray-800">
-                                        Dr. Specialist {item}
+                                        {item.name}
                                     </h4>
                                     <p className="text-[#00B4D8] mt-2">
-                                        Orthopaedic Surgeon
+                                        {item.specialization}
                                     </p>
+                                    {item.is_Top_Rated &&
+                                        <Link href={`/doctors/${item.doctor_slug}`}><p className='w-full py-1 bg-[#00B4D8] text-white rounded-lg my-2'>View Details</p></Link>
+                                    }
                                 </div>
                             ))}
 

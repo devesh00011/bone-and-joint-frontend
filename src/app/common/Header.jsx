@@ -6,15 +6,19 @@ import BookAppointMentModel from './BookAppointMentModel'
 
 export default function Header() {
   const [appointmentModel, setAppointmentModel] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  // const [scrolled, setScrolled] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > 20)
+  //   }
+
+  //   window.addEventListener('scroll', handleScroll, { passive: true })
+
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [])
 
 
   const blank_state = () => {
@@ -37,10 +41,7 @@ export default function Header() {
       <header
         className={`
           sticky top-0 w-full z-50 transition-all duration-300
-          ${scrolled
-            ? 'bg-[#0B1C2D]/95 shadow-2xl'
-            : 'bg-black/90 shadow-2xl'
-          }
+         bg-[#0B1C2D]/95
         `}
       >
 
