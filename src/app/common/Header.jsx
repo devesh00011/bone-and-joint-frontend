@@ -3,30 +3,65 @@ import React, { useEffect, useState } from 'react'
 import PcHeader from './PcHeader'
 import MobileHeader from './MobileHeader'
 import BookAppointMentModel from './BookAppointMentModel'
+import { get_api } from '../api_helper/api_helper'
+import { setDoctors } from '../redux/slices/doctorSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { setservices } from '../redux/slices/serviceSlice'
 
 export default function Header() {
   const [appointmentModel, setAppointmentModel] = useState(false)
-  // const [scrolled, setScrolled] = useState(false)
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrolled(window.scrollY > 20)
-  //   }
+  const doctorsDataAll = useSelector((store) => store.doctor)
+  const serviceDataAll = useSelector((store) => store.service)
 
-  //   window.addEventListener('scroll', handleScroll, { passive: true })
 
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [])
+  const dispatch = useDispatch()
+
+  const fetchAllDoctors = async () => {
+    try {
+      const res = await get_api({
+        params: null,
+        path: 'doctor/view'
+      })
+      if (res.data.success) {
+        dispatch(setDoctors(res.data.response))
+      }
+      else {
+        console.error('Failed to fetch Doctors')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchAllServices = async () => {
+    try {
+      const res = await get_api({
+        params: null,
+        path: 'service/view'
+      })
+      if (res.data.success) {
+        dispatch(setservices(res.data.response))
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  //all use effects 
+  useEffect(() => {
+    fetchAllDoctors()
+    fetchAllServices()
+  }, [])
 
 
   const blank_state = () => {
     setAppointmentModel(false)
-    setselectedTab(null)
-    setSelectedDoctor(null)
-    setQrCodeOpen(false)
-    setPaymentMethod(null)
+    // setselectedTab(null)
+    // setSelectedDoctor(null)
+    // setQrCodeOpen(false)
+    // setPaymentMethod(null)
   }
 
   return (
@@ -41,7 +76,7 @@ export default function Header() {
       <header
         className={`
           sticky top-0 w-full z-50 transition-all duration-300
-         bg-[#0B1C2D]/95
+         bg-[#0b1C2D]/95 shadow-2xl
         `}
       >
 
@@ -61,6 +96,7 @@ export default function Header() {
             setAppointmentModel={setAppointmentModel}
           />
         </div>
+
       </header>
     </>
   )

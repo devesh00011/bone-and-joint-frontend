@@ -15,7 +15,7 @@ export const post_api = async ({ body, params, path }) => {
             },
         });
 
-        return response.data;
+        return response;
 
     } catch (error) {
         console.log(error);
@@ -37,7 +37,7 @@ export const get_api = async ({ params, path }) => {
             },
         });
 
-        return response.data;
+        return response;
 
     } catch (error) {
         console.log(error);

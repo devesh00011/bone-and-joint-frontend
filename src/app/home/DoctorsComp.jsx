@@ -3,11 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Doctors } from '../api_data/Doctors'
+import { useSelector } from 'react-redux'
 
 export default function DoctorsComp() {
-    const topDoctors = Doctors.filter(item => item.is_Top_Rated)
 
-    console.log(topDoctors)
+    const doctorsData = useSelector((store) => store.doctor)
+    const topDoctors = doctorsData.filter(item => item.is_featured)
 
     return (
         <section className="w-full lg:py-16 py-12 bg-gray-200">
@@ -43,32 +44,40 @@ export default function DoctorsComp() {
 
                 {/* DOCTORS LIST */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                    {topDoctors.map((doc, index) => (
-                        <div
-                            key={index}
-                            className="rounded-3xl border border-gray-100 shadow-sm
-                         hover:shadow-xl hover:-translate-y-3
-                         duration-300 w-full h-[300] bg-white p-8 relative group"
-                        >
-                            {/* Avatar */}
-                            <Image
-                                src={doc.image}
-                                alt=""
-                                fill
-                                quality={75}
-                                className="absolute z-20 top-0 left-0 w-full h-full rounded-2xl object-cover transition-all duration-300 ease-out"
-                            />
-                            <div className='bg-linear-to-t from-black via-black/70 to-transparent w-full h-full absolute top-0 left-0 lg:opacity-0 group-hover:opacity-100 duration-200 rounded-2xl z-20'></div>
+                    {topDoctors.map((doc, index) => {
+                        const { name, slug, profile_image } = doc
+                        return (
                             <div
-                                className="absolute lg:bottom-6 lg:left-6 bottom-6 left-1/3 -translate-x-20 z-30 lg:opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out  text-white"
+                                key={index}
+                                className="rounded-3xl border border-gray-100 shadow-sm
+        hover:shadow-xl hover:-translate-y-3
+        duration-300 w-full h-[300] bg-white p-8 relative group"
                             >
-                                <h2 className='text-2xl font-extrabold'>{doc.name}</h2>
-                                <p className='text-sm'>{doc.speciality}</p>
-                                <p className='text-md text-[#00B4D8] font-bold'>{doc.experience}</p>
-                                <Link href={`/doctors/${doc.doctor_slug}`}><button className='bg-white text-black font-semibold rounded-full px-3  text-sm py-1 hover:bg-blue-900 duration-200 hover:text-white cursor-pointer mt-1'>View Details</button></Link>
+                                {/* Avatar */}
+                                <Image
+                                    src={profile_image}
+                                    alt={name}
+                                    fill
+                                    quality={75}
+                                    className="absolute z-20 top-0 left-0 w-full h-full rounded-2xl object-cover transition-all duration-300 ease-out"
+                                />
+
+                                <div className="bg-linear-to-t from-black via-black/70 to-transparent w-full h-full absolute top-0 left-0 lg:opacity-0 group-hover:opacity-100 duration-200 rounded-2xl z-20"></div>
+
+                                <div className="absolute lg:bottom-6 lg:left-6 bottom-6 left-1/3 -translate-x-20 z-30 lg:opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out text-white">
+                                    <h2 className="text-2xl font-extrabold">{name}</h2>
+                                    <p className="text-sm">{doc.speciality}</p>
+                                    <p className="text-md text-[#00B4D8] font-bold">{ }</p>
+
+                                    <Link href={`/doctors/${slug}`}>
+                                        <button className="bg-white text-black font-semibold rounded-full px-3 text-sm py-1 hover:bg-blue-900 duration-200 hover:text-white cursor-pointer mt-1">
+                                            View Details
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                 </div>
             </div>
         </section>

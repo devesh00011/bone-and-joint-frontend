@@ -4,29 +4,32 @@ import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Image from 'next/image';
 import BookAppointMentModel from './BookAppointMentModel';
+import { useSelector } from 'react-redux';
 
 export default function Footer() {
+    const servicesData = useSelector((store) => store.service)
+    const doctorsData = useSelector((store) => store.doctor)
     return (
         <footer className="bg-[#0b1c2d] text-gray-300">
 
             <BookAppointMentModel />
 
             {/* TOP FOOTER */}
-            <div className="max-w-330 mx-auto px-4 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="max-w-330 mx-auto px-0 py-16">
+                <div className="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-5 justify-between gap-8">
 
                     {/* BRAND */}
                     <div>
                         <Link href="/" className="flex items-center gap-2 font-bold text-white">
                             <Image
-                                src="/logo.jpeg"
+                                src="/logo-white.PNG"
                                 alt="Hospital Logo"
-                                width={40}
-                                height={40}
+                                width={60}
+                                height={60}
                                 className="object-cover rounded-full"
                                 priority
                             />
-                            <p className="text-2xl font-extrabold text-white">
+                            <p className="text-lg font-extrabold text-white">
                                 Bone & Joint Hospital
                             </p>
                         </Link>
@@ -78,14 +81,28 @@ export default function Footer() {
                     {/* SERVICES */}
                     <div>
                         <h4 className="text-lg font-semibold text-white mb-4">
+                            Our Doctors
+                        </h4>
+                        <ul className="space-y-3 text-sm text-gray-300">
+                            {doctorsData.map((item, index) => {
+                                return (
+                                    <Link key={index} className='' href={`/doctors/${item.slug}`}><li className='cursor-pointer py-1 hover:text-cyan-500 duration-100'>{item.name}</li></Link>
+                                )
+                            })}
+                        </ul>
+                    </div>
+
+                    {/* SERVICES */}
+                    <div>
+                        <h4 className="text-lg font-semibold text-white mb-4">
                             Our Treatments
                         </h4>
-                        <ul className="space-y-3 text-sm text-gray-400">
-                            <li>Knee Replacement</li>
-                            <li>Joint Replacement</li>
-                            <li>Spine Treatment</li>
-                            <li>Sports Injury Care</li>
-                            <li>Fracture & Trauma Care</li>
+                        <ul className="space-y-3 text-sm text-gray-300">
+                            {servicesData.map((item, index) => {
+                                return (
+                                    <Link key={index} className='' href={`/services/${item.service_slug}`}><li className='cursor-pointer py-1 hover:text-cyan-500 duration-100'>{item.service_name}</li></Link>
+                                )
+                            })}
                         </ul>
                     </div>
 

@@ -108,9 +108,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. Gaurav Agarwal',
+        name: 'Dr. Harshit Gehlot',
         specialization: 'Anesthesia intensivist & Critical care specialist',
-        doctor_slug: 'dr-gaurav-agarwal',
+        doctor_slug: 'dr-harshit-gehlot',
         qualification: 'MBBS, MS (Orthopaedics)',
         experience: '10+ Years Experience',
         hospital_role: 'Orthopaedic Consultant',
@@ -133,9 +133,9 @@ export const Doctors = [
     },
 
     {
-        name: 'Dr. K K SHARMA',
+        name: 'Dr. Saurabh Kuwera',
         specialization: 'Plastic & Reconstruction Surgeon',
-        doctor_slug: 'dr-k-k-sharma',
+        doctor_slug: 'dr-saurabh-kuwera',
         qualification: 'MBBS, MS (Orthopaedics)',
         experience: '9+ Years Experience',
         hospital_role: 'Orthopaedic Consultant',

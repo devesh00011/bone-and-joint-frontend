@@ -6,51 +6,46 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { ServicesData } from '../api_data/Services'
+import { useSelector } from 'react-redux'
 
 export default function OurServices() {
 
-    const data = [
-        { title: "Knee Replacement Surgery", slug: "knee-replacement-jodhpur", src: "/s1.jpg" },
-        { title: "Hip Replacement Surgery", slug: "hip-replacement-jodhpur", src: "/s1.jpg" },
-        { title: "Sports Injury Treatment", slug: "sports-injury-treatment-jodhpur", src: "/s1.jpg" },
-        { title: "Spine & Back Pain Treatment", slug: "spine-back-pain-treatment-jodhpur", src: "/s1.jpg" },
-        { title: "Arthroscopy Surgery", slug: "arthroscopy-surgery-jodhpur", src: "/s1.jpg" },
-        { title: "Fracture & Trauma Care", slug: "fracture-trauma-care-jodhpur", src: "/s1.jpg" },
-        { title: "Shoulder & Elbow Treatment", slug: "shoulder-elbow-treatment-jodhpur", src: "/s1.jpg" },
-        { title: "Joint Pain Management", slug: "joint-pain-management-jodhpur", src: "/s1.jpg" },
-    ]
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2500,
-        arrows: false,
-        cssEase: "ease-in-out",
-        pauseOnHover: true,
-        slidesToShow: 4, // desktop default
+    const ServicesData = useSelector((store) => store.service)
 
-        responsive: [
-            {
-                breakpoint: 1024, // tablet
-                settings: {
-                    slidesToShow: 2, // desktop default
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 640, // mobile
-                settings: {
-                    slidesToShow: 1, // desktop default
+    console.log(ServicesData)
 
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    // const settings = {
+    //     dots: false,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 2500,
+    //     arrows: false,
+    //     cssEase: "ease-in-out",
+    //     pauseOnHover: true,
+    //     slidesToShow: 4, // desktop default
+
+    //     responsive: [
+    //         {
+    //             breakpoint: 1024, // tablet
+    //             settings: {
+    //                 slidesToShow: 2, // desktop default
+    //                 slidesToShow: 2,
+    //                 slidesToScroll: 1,
+    //             },
+    //         },
+    //         {
+    //             breakpoint: 640, // mobile
+    //             settings: {
+    //                 slidesToShow: 1, // desktop default
+
+    //                 slidesToShow: 1,
+    //                 slidesToScroll: 1,
+    //             },
+    //         },
+    //     ],
+    // };
 
 
 
@@ -115,7 +110,7 @@ export default function OurServices() {
                         autoplaySpeed={2500}
                         arrows={false}
                     >
-                        {data.map((item, index) => (
+                        {ServicesData.map((item, index) => (
                             <div key={index} className="px-3">
                                 <CustomCard item={item} />
                             </div>
@@ -131,15 +126,15 @@ export default function OurServices() {
 
 
 function CustomCard({ item }) {
-    const { title, src, slug } = item
+    const { service_name, service_image, service_slug } = item
 
     return (
         <div className="relative group w-full h-72 rounded-xl overflow-hidden shadow-lg cursor-pointer">
 
             {/* Image */}
             <Image
-                src={src}
-                alt={title}
+                src={service_image}
+                alt={service_name}
                 fill
                 quality={75}
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -162,7 +157,7 @@ function CustomCard({ item }) {
 
                 {/* Title */}
                 <h2 className="text-xl font-bold transition-all duration-500">
-                    {title}
+                    {service_name}
                 </h2>
 
                 {/* Expandable Button Wrapper */}
@@ -173,7 +168,7 @@ function CustomCard({ item }) {
   transition-all duration-500
 ">
                     <Link
-                        href={`/services/${slug}`}
+                        href={`/services/${service_slug}`}
                         className="inline-block mt-4 px-5 py-2 rounded-full font-semibold
                      bg-white text-black hover:text-white hover:bg-[#26425e]
                      shadow-md transition-all duration-300"

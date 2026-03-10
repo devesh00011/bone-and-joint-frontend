@@ -8,85 +8,85 @@ import {
 export const ServicesData = [
     {
         title: "Robotic Joint Replacement Surgery",
-        slug: "robotic-joint-replacement-surgery",
+        s_slug: "robotic-joint-replacement-surgery",
         icon: <Bone size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Microscopic Spine Surgery",
-        slug: "microscopic-spine-surgery",
+        s_slug: "microscopic-spine-surgery",
         icon: <Activity size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Arthroscopic Knee & Shoulder Surgery",
-        slug: "arthroscopic-knee-shoulder-surgery",
+        s_slug: "arthroscopic-knee-shoulder-surgery",
         icon: <HeartPulse size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Complex Fracture Surgery",
-        slug: "complex-fracture-surgery",
+        s_slug: "complex-fracture-surgery",
         icon: <ShieldPlus size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Minimally Invasive Trauma Surgery",
-        slug: "minimally-invasive-trauma-surgery",
+        s_slug: "minimally-invasive-trauma-surgery",
         icon: <Scissors size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Pediatric Orthopedic Surgery",
-        slug: "pediatric-orthopedic-surgery",
+        s_slug: "pediatric-orthopedic-surgery",
         icon: <Baby size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Plastic & Reconstructive Surgery",
-        slug: "plastic-reconstructive-surgery",
+        s_slug: "plastic-reconstructive-surgery",
         icon: <ShieldPlus size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Dental & Maxillofacial Surgery",
-        slug: "dental-maxillofacial-surgery",
+        s_slug: "dental-maxillofacial-surgery",
         icon: <Smile size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Hand & Microvascular Surgery",
-        slug: "hand-microvascular-surgery",
+        s_slug: "hand-microvascular-surgery",
         icon: <Hand size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Foot & Ankle Surgery",
-        slug: "foot-ankle-surgery",
+        s_slug: "foot-ankle-surgery",
         icon: <Footprints size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Neurotrauma Surgery",
-        slug: "neurotrauma-surgery",
+        s_slug: "neurotrauma-surgery",
         icon: <Brain size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Advanced Trauma Care Center",
-        slug: "advanced-trauma-care-center",
+        s_slug: "advanced-trauma-care-center",
         icon: <Building2 size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "General Surgery",
-        slug: "general-surgery",
+        s_slug: "general-surgery",
         icon: <Stethoscope size={28} />,
         src: '/d1.jpg'
     },
     {
         title: "Internal Medicine",
-        slug: "internal-medicine",
+        s_slug: "internal-medicine",
         icon: <Syringe size={28} />,
         src: '/d1.jpg'
     },
