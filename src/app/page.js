@@ -18,7 +18,7 @@ export default function Home() {
       <OurServices />
       <BookAppointmentCTA />
       <WhyChooseUs />
-      <Insurance />
+      {/* <Insurance /> */}
       <Testimonials />
       <Faqs />
     </div>
