@@ -36,7 +36,7 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
                             { name: 'About Us', path: '/about' },
                             { name: 'Services', path: '/services' },
                             { name: 'Doctors', path: '/doctors' },
-                            { name: 'Contact Us', path: '/contact' },
+                            { name: 'Contact Us', path: '/contact-us' },
                         ].map((item) => (
                             <li key={item.name} className="relative group">
                                 <Link href={item.path}>

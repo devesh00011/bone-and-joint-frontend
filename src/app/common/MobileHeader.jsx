@@ -86,7 +86,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                             { name: 'Doctors', path: '/doctors' },
 
                             { name: 'About Us', path: '/about' },
-                            { name: 'Contact Us', path: '/contact' },
+                            { name: 'Contact Us', path: '/contact-us' },
                         ].map((item) => (
                             <li key={item.name}>
                                 <Link href={item.path} onClick={() => setMenuOpen(false)}>
