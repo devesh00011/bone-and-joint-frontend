@@ -1,11 +1,81 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import Swal from 'sweetalert2'
+import Loading from '../loading'
+import { post_api } from '../api_helper/api_helper'
 
 
 export default function ContactClient() {
+
+    const [full_name, setFullName] = useState('')
+    const [email_id, setEmailId] = useState('')
+    const [phone_number, setPhoneNumber] = useState('')
+    const [user_message, setUserMessage] = useState('')
+
+    const [loading, setLoading] = useState(false)
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        setLoading(true)
+        try {
+            const formObj = {
+                full_name,
+                email_id,
+                phone_number,
+                user_message
+
+            }
+            const res = await post_api({
+                body: formObj,
+                params: null,
+                path: 'contact/save'
+            })
+            if (res.data.success) {
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Thank you for Contact Us',
+                    icon: 'success',
+                    timer: 2000
+                })
+                blank_state()
+
+            }
+        } catch (error) {
+            console.log(error)
+            if (error?.response?.status == 404) {
+                Swal.fire({
+                    title: error?.response?.data?.msg,
+                    text: 'Try again later !',
+                    icon: 'warning',
+                })
+            }
+            else {
+                Swal.fire({
+                    title: 'Something went wrong',
+                    text: 'Server Error',
+                    icon: 'error',
+                })
+            }
+
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
+    const blank_state = () => {
+        setFullName('')
+        setEmailId('')
+        setPhoneNumber('')
+        setUserMessage('')
+    }
+
     return (
         <>
+            {loading &&
+                <Loading />
+            }
             {/* HERO */}
             <section className="w-full bg-[#0B1C2D] text-white">
                 <div className="max-w-[1320] mx-auto px-6 py-16 text-center">
@@ -14,7 +84,7 @@ export default function ContactClient() {
                     </h1>
                     <div className="w-24 h-1 bg-[#00B4D8] mx-auto mt-4 rounded-full" />
                     <p className="mt-6 text-gray-300 max-w-2xl mx-auto">
-                        We’re here to help you. Reach out for appointments, emergency care,
+                        We're here to help you. Reach out for appointments, emergency care,
                         or any medical assistance.
                     </p>
                 </div>
@@ -67,26 +137,42 @@ export default function ContactClient() {
                             Send Us a Message
                         </h3>
 
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <input
+                                value={full_name}
+                                onChange={(e) => setFullName(e.target.value)}
+                                required
+                                name='full_name'
                                 type="text"
                                 placeholder="Full Name"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4D8]"
                             />
 
                             <input
+                                value={email_id}
+                                onChange={(e) => setEmailId(e.target.value)}
+                                required
+                                name='email_id'
                                 type="email"
                                 placeholder="Email Address"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4D8]"
                             />
 
                             <input
+                                value={phone_number}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                required
+                                name='phone_number'
                                 type="tel"
                                 placeholder="Phone Number"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4D8]"
                             />
 
                             <textarea
+                                value={user_message}
+                                onChange={(e) => setUserMessage(e.target.value)}
+                                required
+                                name='user_message'
                                 rows="4"
                                 placeholder="Your Message"
                                 className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4D8]"
@@ -111,7 +197,7 @@ export default function ContactClient() {
                 </h3>
 
                 <Link
-                    href="tel:+919999999999"
+                    href="tel:+919694022500"
                     className="inline-block bg-[#00B4D8] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#0096c7] transition"
                 >
                     Call Now

@@ -50,11 +50,11 @@ export default function OurServices() {
 
 
     return (
-        <section className="w-full lg:py-16 py-12 bg-gray-200">
-            <div className="max-w-7xl mx-auto lg:px-0 px-4">
+        <section className="w-full lg:py-16 py-12 bg-gray-200 lg:px-6 px-4">
+            <div className="max-w-7xl mx-auto">
 
                 {/* Section Header */}
-                <div className="lg:text-start text-center mb-16">
+                <div className="lg:text-start text-center lg:mb-16 mb-8">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
                         Our Services
                     </h2>

@@ -57,11 +57,11 @@ export default function Hero() {
                                 <div className='md:block hidden'>
 
                                     <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-                                            <button onClick={()=>setAppointmentModel(true)} className='bg-white text-[#0096c7] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold shadow-xl hover:scale-105 transition-all duration-300'>
-                                                Book Appointment
-                                            </button>
+                                        <button onClick={() => setAppointmentModel(true)} className='bg-white text-[#0096c7] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold shadow-xl hover:scale-105 transition-all duration-300'>
+                                            Book Appointment
+                                        </button>
 
-                                        <Link href="tel:+919999999999">
+                                        <Link href="tel:+919694022500">
                                             <button className='border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#0096c7] transition-all duration-300'>
                                                 Contact Us
                                             </button>

@@ -13,7 +13,7 @@ export default function AboutUs() {
     ]
 
     return (
-        <section className="w-full  lg:py-24 pb-5 bg-[#0b1c2d]">
+        <section className="w-full  lg:py-24 pb-5 bg-[#0b1c2d] lg:px-6 px-4">
             <div className="max-w-330 mx-auto">
 
                 <div className="grid grid-cols-1 lg:grid-cols-[47%_auto] gap-10 items-center">
@@ -30,7 +30,7 @@ export default function AboutUs() {
                     </div>
 
                     {/* RIGHT CONTENT */}
-                    <div className='lg:p-0 p-5'>
+                    <div className=''>
                         <h2 className="text-3xl md:text-4xl hover:text-[#00B4D8] duration-300 font-extrabold text-white">
                             About Bone & Joint Hospital
                         </h2>

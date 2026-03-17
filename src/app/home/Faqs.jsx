@@ -33,11 +33,11 @@ export default function Faqs() {
   const [activeIndex, setActiveIndex] = useState(null)
 
   return (
-    <section className="w-full py-24 bg-[#f8fafc]">
-      <div className="max-w-330 mx-auto px-4">
+    <section className="w-full lg:py-24 py-10 bg-[#f8fafc] lg:px-6 px-4">
+      <div className="max-w-330 mx-auto">
 
         {/* HEADER */}
-        <div className="text-center mb-16">
+        <div className="text-center lg:mb-16 mb-8">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
             Frequently Asked Questions
           </h2>

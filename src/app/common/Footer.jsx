@@ -10,12 +10,12 @@ export default function Footer() {
     const servicesData = useSelector((store) => store.service)
     const doctorsData = useSelector((store) => store.doctor)
     return (
-        <footer className="bg-[#0b1c2d] text-gray-300">
+        <footer className="bg-[#0b1c2d] text-gray-300 lg:px-6 px-4">
 
             <BookAppointMentModel />
 
             {/* TOP FOOTER */}
-            <div className="max-w-330 mx-auto px-0 py-16">
+            <div className="max-w-330 mx-auto  py-16">
                 <div className="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-5 justify-between gap-8">
 
                     {/* BRAND */}

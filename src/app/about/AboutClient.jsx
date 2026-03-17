@@ -64,7 +64,7 @@ export default function AboutClient() {
                                     Book Appointment
                                 </button>
 
-                                <Link href="tel:+919999999999">
+                                <Link href="tel:+919694022500">
                                     <button className='border-2 text-white border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#0096c7] transition-all duration-300'>
                                         Contact Us
                                     </button>

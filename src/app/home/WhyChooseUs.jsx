@@ -30,12 +30,12 @@ export default function WhyChooseUs() {
     return (
         <section
             ref={sectionRef}
-            className="w-full py-24 bg-blue-50"
+            className="w-full py-24 bg-blue-50 lg:px-6 px-4"
         >
-            <div className="max-w-330 mx-auto lg:px-0 px-4">
+            <div className="max-w-330 mx-auto">
 
                 {/* HEADING */}
-                <div className="lg:text-start text-center mb-16">
+                <div className="lg:text-start text-center lg:mb-16 mb-8">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
                         Why Patients Trust Us
                     </h2>

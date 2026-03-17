@@ -20,9 +20,9 @@ export default function Testimonials() {
         },
     ]
     return (
-        <section className='w-full my-12'>
-            <div className="max-w-330 mx-auto lg:px-0 px-4">
-                <div className="lg:text-start text-center mb-16">
+        <section className='w-full my-12 lg:px-6 px-4'>
+            <div className="max-w-330 mx-auto ">
+                <div className="lg:text-start text-center lg:mb-16 mb-8">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
                         Testimonials
                     </h2>

@@ -34,7 +34,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
 
             <div className='fixed bottom-0 grid grid-cols-2 w-full shadow-2xl border-t-2 border-white'>
                 <button onClick={() => setAppointmentModel(true)} className='bg-[#0B1C2D] text-white w-full py-4 border-r-2'>Book </button>
-                <Link href={'tel:+918079092775'}><button className='bg-green-700 text-white w-full py-4'>Call Us</button></Link>
+                <Link href={'tel:+919694022500'}><button className='bg-green-700 text-white w-full py-4'>Call Us</button></Link>
             </div>
 
             {/* OVERLAY */}
@@ -131,7 +131,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                         </button>
 
                         <a
-                            href="tel:+919999999999"
+                            href="tel:+919694022500"
                             className="block w-full border border-[#00B4D8] text-[#00B4D8] py-3 rounded-full text-center font-semibold"
                         >
                             Call Hospital

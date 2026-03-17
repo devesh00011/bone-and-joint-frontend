@@ -47,7 +47,7 @@ export default function BookAppointmentCTA() {
               Book Appointment
             </button>
 
-            <a href="tel:+919XXXXXXXXX">
+            <a href="tel:+919694022500">
               <button className="
               flex items-center gap-2
               border border-white
