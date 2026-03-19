@@ -12,7 +12,6 @@ export default function OurServices() {
 
     const ServicesData = useSelector((store) => store.service)
 
-    console.log(ServicesData)
 
     // const settings = {
     //     dots: false,
@@ -55,9 +54,9 @@ export default function OurServices() {
 
                 {/* Section Header */}
                 <div className="lg:text-start text-center lg:mb-16 mb-8">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                    <Link href={'/services'}><h2 className="text-4xl hover:text-[#00616b] duration-300 cursor-pointer md:text-5xl font-extrabold text-gray-800">
                         Our Services
-                    </h2>
+                    </h2></Link>
                     <div className="w-16 h-1 bg-[#00B4D8] lg:mx-0 mx-auto mt-4 rounded-full" />
                     <p className="mt-5 text-gray-600 max-w-xl lg:mx-0 mx-auto">
                         Comprehensive orthopaedic care delivered by experienced specialists

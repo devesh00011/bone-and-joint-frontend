@@ -16,9 +16,9 @@ export default function DoctorsComp() {
 
                 {/* SECTION HEADER */}
                 <div className="lg:text-start text-center lg:mb-16 mb-8 ">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                    <Link href={'/doctors'}><h2 className="text-4xl cursor-pointer hover:text-[#00616b] duration-300 md:text-5xl font-extrabold text-gray-800">
                         Our Medical Expertise
-                    </h2>
+                    </h2></Link>
                     <div className="w-16 h-1 bg-[#00B4D8] lg:mx-0 mx-auto mt-4 rounded-full" />
                     <p className="mt-5 text-gray-600 max-w-xl lg:mx-0 mx-auto">
                         Comprehensive orthopaedic care delivered by experienced specialists
@@ -45,7 +45,7 @@ export default function DoctorsComp() {
                 {/* DOCTORS LIST */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                     {topDoctors.map((doc, index) => {
-                        const { name, slug, profile_image } = doc
+                        const { name, slug, profile_image, primary_specialization } = doc
                         return (
                             <div
                                 key={index}
@@ -65,12 +65,11 @@ export default function DoctorsComp() {
                                 <div className="bg-linear-to-t from-black via-black/70 to-transparent w-full h-full absolute top-0 left-0 lg:opacity-0 group-hover:opacity-100 duration-200 rounded-2xl z-20"></div>
 
                                 <div className="absolute lg:bottom-6 lg:left-6 bottom-6 left-1/3 -translate-x-20 z-30 lg:opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out text-white">
-                                    <h2 className="text-2xl font-extrabold">{name}</h2>
-                                    <p className="text-sm">{doc.speciality}</p>
-                                    <p className="text-md text-[#00B4D8] font-bold">{ }</p>
+                                    <h2 className="text-xl font-extrabold">{name}</h2>
+                                    <p className="text-md text-[#00B4D8] font-semibold "> {primary_specialization}</p>
 
                                     <Link href={`/doctors/${slug}`}>
-                                        <button className="bg-white text-black font-semibold rounded-full px-3 text-sm py-1 hover:bg-blue-900 duration-200 hover:text-white cursor-pointer mt-1">
+                                        <button className="bg-white text-black font-semibold rounded-full px-3 text-sm py-1 hover:bg-[#004350] mt-2 duration-300 hover:text-white cursor-pointer">
                                             View Details
                                         </button>
                                     </Link>

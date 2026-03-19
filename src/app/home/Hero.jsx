@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Overlay5 from '../common/Overlays'
 import Link from 'next/link'
 import BookAppointMentModel from '../common/BookAppointMentModel'
+import { MobileNumber } from '../WebSensitives/ContactSensitives'
 
 export default function Hero() {
 
@@ -61,7 +62,7 @@ export default function Hero() {
                                             Book Appointment
                                         </button>
 
-                                        <Link href="tel:+919694022500">
+                                        <Link href={`tel:${MobileNumber}`}>
                                             <button className='border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#0096c7] transition-all duration-300'>
                                                 Contact Us
                                             </button>

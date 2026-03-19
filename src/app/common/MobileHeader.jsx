@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import { IoClose } from 'react-icons/io5'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { ServicesData } from '../api_data/Services'
+import { MobileNumber } from '../WebSensitives/ContactSensitives'
 
 export default function MobileHeader({ appointmentModel, setAppointmentModel }) {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -11,21 +14,8 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
 
 
 
-    const data = [
-        "Knee Replacement Surgery",
-        "Hip Replacement Surgery",
-        "Spine Surgery & Back Pain Treatment",
-        "Arthroscopic Surgery",
-        "Joint Replacement (Hip, Knee, Shoulder, Elbow)",
-        "Polytrauma & Trauma Care",
-        "Physiotherapy & Rehabilitation",
-        "Orthopaedic Consultation",
-        "Shoulder & Elbow Treatment",
-        "Bone Tumor (Neoplasm) Care",
-        "Joint Dislocation Treatment",
-        "Limb Lengthening Procedures",
-        "X-Ray & Diagnostic Services",
-    ]
+    const servicesData = useSelector((store) => store.service)
+    console.log('servicesData', servicesData)
 
     return (
         <div className="lg:hidden block relative z-50">
@@ -34,7 +24,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
 
             <div className='fixed bottom-0 grid grid-cols-2 w-full shadow-2xl border-t-2 border-white'>
                 <button onClick={() => setAppointmentModel(true)} className='bg-[#0B1C2D] text-white w-full py-4 border-r-2'>Book </button>
-                <Link href={'tel:+919694022500'}><button className='bg-green-700 text-white w-full py-4'>Call Us</button></Link>
+                 <Link href={`tel:${MobileNumber}`}><button className='bg-green-700 text-white w-full py-4'>Call Us</button></Link>
             </div>
 
             {/* OVERLAY */}
@@ -87,9 +77,9 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
 
                             { name: 'About Us', path: '/about' },
                             { name: 'Contact Us', path: '/contact-us' },
-                        ].map((item) => (
-                            <li key={item.name}>
-                                <Link href={item.path} onClick={() => setMenuOpen(false)}>
+                        ].map((item, index) => (
+                            <li key={index}>
+                                <Link key={index} href={item.path} onClick={() => setMenuOpen(false)}>
                                     {item.name}
                                 </Link>
                                 <div className='w-[40] rounded-full h-[3] mt-1 bg-[#00B4D8] '></div>
@@ -106,14 +96,18 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                                     } duration-500 overflow-hidden p-3 origin-top-left w-full bg-gray-50 transition-all ease-in-out`}
                             >
                                 <ul className="py-2">
-                                    {data.map((item, index) => {
+                                    {servicesData.map((item, index) => {
                                         return (
-                                            <Link key={index} href={`/services/${item.replace(/ /g, "-")}`}><li onClick={() => setMenuOpen(false)} key={index} className="text-[15px] font-medium text-gray-700 py-3 px-3 hover:bg-blue-100 hover:text-blue-700 hover:pl-5 transition-all duration-200 cursor-pointer rounded-md">
-                                                {item}
+                                            <Link key={index} href={`/services/${item.service_slug}`}><li onClick={() => setMenuOpen(false)} key={index} className="text-[15px] font-medium text-gray-700 py-3 px-3 hover:bg-blue-100 hover:text-blue-700 hover:pl-5 transition-all duration-200 cursor-pointer rounded-md">
+                                                {item.service_name}
                                                 <div className="w-5 rounded-full h-[3] mt-1 bg-[#00B4D8]"></div>
                                             </li></Link>
                                         )
                                     })}
+                                    <Link href={'/services'}><li onClick={() => setMenuOpen(false)} className="text-[15px]  py-3 px-3 ml-3 transition-all duration-200 cursor-pointer rounded-md font-bold text-[#095b5e]">View all Services
+                                        <div className="w-5 rounded-full h-[3] mt-1 bg-[#00B4D8]"></div>
+                                    </li>
+                                    </Link>
                                 </ul>
                             </div>
                         </li>
@@ -130,12 +124,11 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                             Book Appointment
                         </button>
 
-                        <a
-                            href="tel:+919694022500"
+                         <Link href={`tel:${MobileNumber}`}
                             className="block w-full border border-[#00B4D8] text-[#00B4D8] py-3 rounded-full text-center font-semibold"
                         >
                             Call Hospital
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </div>

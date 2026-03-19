@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { FaCalendarCheck, FaPhoneAlt } from 'react-icons/fa'
 import BookAppointMentModel from '../common/BookAppointMentModel'
+import { MobileNumber } from '../WebSensitives/ContactSensitives'
 
 export default function BookAppointmentCTA() {
   const [appointmentModel, setAppointmentModel] = useState(false)
@@ -47,7 +48,7 @@ export default function BookAppointmentCTA() {
               Book Appointment
             </button>
 
-            <a href="tel:+919694022500">
+            <Link href={`tel:${MobileNumber}`}>
               <button className="
               flex items-center gap-2
               border border-white
@@ -59,7 +60,7 @@ export default function BookAppointmentCTA() {
                 <FaPhoneAlt />
                 Call Now
               </button>
-            </a>
+            </Link>
 
           </div>
 

@@ -19,7 +19,7 @@ export const metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },              // best support
-      { url: "/favicon.png", type: "image/png" } // fallback
+      { url: "/favicon.ico", type: "image/png" } // fallback
     ],
     apple: "/apple-touch-icon.png",
   },

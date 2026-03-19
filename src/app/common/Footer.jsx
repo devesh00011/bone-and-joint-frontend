@@ -5,6 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Image from 'next/image';
 import BookAppointMentModel from './BookAppointMentModel';
 import { useSelector } from 'react-redux';
+import { MobileNumber, TelePhoneNumber } from '../WebSensitives/ContactSensitives';
 
 export default function Footer() {
     const servicesData = useSelector((store) => store.service)
@@ -114,7 +115,7 @@ export default function Footer() {
 
                         <div className="space-y-4 text-sm">
                             <p className="flex items-start gap-3">
-                                <FaMapMarkerAlt className="text-[#00B4D8] mt-1" />
+                                <FaMapMarkerAlt className="text-[#00B4D8] text-md mt-1" />
                                 <span>
                                     15 Keshav Nagar, Opposite Samrat Ashok Udhyan, Jodhpur, Rajasthan
                                 </span>
@@ -122,7 +123,7 @@ export default function Footer() {
 
                             <p className="flex items-center gap-3">
                                 <FaPhoneAlt className="text-[#00B4D8]" />
-                                <span>+91 96940-22500 , 0291-2110000</span>
+                                <span>{MobileNumber} , {TelePhoneNumber}</span>
                             </p>
 
                             <p className="flex items-center gap-3">
@@ -134,8 +135,8 @@ export default function Footer() {
                                 🕒 OPD: Mon-Sat (9:00 AM - 7:00 PM)
                             </p>
 
-                            <p className="text-sm text-red-400 font-semibold">
-                                🚑 24x7 Emergency Services Available
+                            <p className="text-sm text-red-100 font-semibold">
+                                🚑 24 / 7 Emergency Services Available
                             </p>
                         </div>
                     </div>

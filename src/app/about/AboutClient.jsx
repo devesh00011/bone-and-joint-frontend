@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import BookAppointMentModel from '../common/BookAppointMentModel'
+import { MobileNumber, TelePhoneNumber } from '../WebSensitives/ContactSensitives'
 
 
 export default function AboutClient() {
@@ -27,7 +28,7 @@ export default function AboutClient() {
             <section className="w-full bg-white">
 
                 {/* ================= HERO SECTION ================= */}
-                <div className="relative w-full h-[550]">
+                <div className="relative w-full h-screen">
 
                     <Image
                         alt="hospital banner image"
@@ -37,9 +38,9 @@ export default function AboutClient() {
                         priority
                     />
 
-                    <div className="absolute inset-0 bg-[#0B1C2D]/75"></div>
+                    <div className="absolute inset-0 bg-[#0B1C2D]/95"></div>
 
-                    <div className="absolute inset-0 flex py-10">
+                    <div className="absolute inset-0 flex lg:py-20 py-10">
                         <div className="max-w-[1320] mx-auto lg:px-0 px-4 w-full">
 
                             <h2 className="text-4xl md:text-5xl font-extrabold text-white">
@@ -64,7 +65,7 @@ export default function AboutClient() {
                                     Book Appointment
                                 </button>
 
-                                <Link href="tel:+919694022500">
+                                <Link href={`tel:${MobileNumber}`}>
                                     <button className='border-2 text-white border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#0096c7] transition-all duration-300'>
                                         Contact Us
                                     </button>
@@ -82,11 +83,11 @@ export default function AboutClient() {
                     Our Services
                 </h3>
 
-                <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
 
                     {services.map((service, index) => (
 
-                        <Link href={`/services/${service.service_slug}`}>
+                        <Link key={index} href={`/services/${service.service_slug}`}>
                             <div className=' shadow-xl group overflow-hidden rounded-xl'>
 
                                 <img src={service.service_image} className='rounded-t-xl group-hover:scale-105 duration-500 cursor-pointer' />
@@ -167,12 +168,14 @@ export default function AboutClient() {
                                     <h4 className="text-xl font-bold text-gray-800">
                                         {item.name}
                                     </h4>
-                                    <p className="text-[#00B4D8] mt-2">
+                                    <p className="text-[#00B4D8] mt-2 font-bold text-lg">
                                         {item.primary_specialization}
                                     </p>
 
                                     <Link href={`/doctors/${item.slug}`}>
-                                        <p className='w-full py-1 text-center bg-[#00B4D8] text-white rounded-lg my-2'>View Details</p>
+                                        {index < 4 &&
+                                            <p className='w-full py-1 text-center bg-[#00B4D8] text-white rounded-lg my-2'>View Details</p>
+                                        }
                                     </Link>
                                 </div>
                             ))}
@@ -199,7 +202,7 @@ export default function AboutClient() {
 
 
             <section className='w-full mb-10'>
-                <div className="bg-[#00B4D8] py-16 text-center text-white">
+                <div className="bg-[#00B4D8] px-3 py-16 text-center text-white">
                     <h3 className="text-4xl font-bold mb-6">
                         Ready to Book Your Appointment?
                     </h3>

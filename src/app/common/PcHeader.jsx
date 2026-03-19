@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function PcHeader({ appointmentModel, setAppointmentModel }) {
     return (
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
             <div className="max-w-[1320] mx-auto lg:px-0 px-4 py-4 flex items-center justify-between">
                 <div className="relative z-40">
                     <Link href="/" className="flex items-center gap-0 font-bold text-white">

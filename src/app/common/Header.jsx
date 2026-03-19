@@ -11,8 +11,8 @@ import { setservices } from '../redux/slices/serviceSlice'
 export default function Header() {
   const [appointmentModel, setAppointmentModel] = useState(false)
 
-  const doctorsDataAll = useSelector((store) => store.doctor)
-  const serviceDataAll = useSelector((store) => store.service)
+  // const doctorsDataAll = useSelector((store) => store.doctor)
+  // const serviceDataAll = useSelector((store) => store.service)
 
 
   const dispatch = useDispatch()

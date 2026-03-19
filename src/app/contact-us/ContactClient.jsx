@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import Loading from '../loading'
 import { post_api } from '../api_helper/api_helper'
+import { MobileNumber } from '../WebSensitives/ContactSensitives'
 
 
 export default function ContactClient() {
@@ -196,8 +197,7 @@ export default function ContactClient() {
                     Need Immediate Medical Assistance?
                 </h3>
 
-                <Link
-                    href="tel:+919694022500"
+                <Link href={`tel:${MobileNumber}`}
                     className="inline-block bg-[#00B4D8] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#0096c7] transition"
                 >
                     Call Now

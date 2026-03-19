@@ -27,7 +27,6 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
     const tabs = ['today', 'tomorrow', 'After tomorrow']
 
     const handleFileChange = (e) => {
-        console.log(e.target.files[0])
 
         const file = e.target.files[0];
         if (!file) return;
@@ -36,7 +35,6 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
         setPreviewImage(url);
     };
 
-    console.log(selectedTab)
 
     const blank_state = () => {
         setAppointmentModel(false)
@@ -196,11 +194,6 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
                                 >
                                     <option value="">Select payment method</option>
                                     <option value="cash">Cash</option>
-                                    <option value="govt schemes">GOV. Schemes</option>
-                                    <option value="maay maa yojna">MAAY- MAA YOJNA</option>
-                                    <option value="rghs">RGHS</option>
-                                    <option value="cghs">CGHS</option>
-                                    <option value="echs">ECHS</option>
                                 </select>
                             </div>
 
@@ -217,9 +210,9 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
                                     <div className="bg-white w-[320]  rounded-2xl p-6 border border-gray-300 animate-scaleIn">
 
                                         { }
-                                        <p className="text-gray-700 text-center text-md font-medium">
-                                            <span className='flex items-center justify-between'>
-                                                You're almost done!
+                                        <p className="text-gray-700  text-md font-medium">
+                                            <span className='flex text-sm items-center justify-between'>
+                                                Take a Screenshot of this qr to payment.
                                                 <span onClick={() => setQrCodeOpen(false)} className='hover:text-red-500 duration-300 cursor-pointer'>close</span>
                                             </span>
                                             <span className="block text-sm mb-3 text-gray-500 mt-1">
@@ -246,6 +239,7 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
                             {/* Preview / Trust Image */}
                             {paymentMethod == 'cash' &&
                                 <>
+                                    <p className='text-md my-6 font-semibold text-[#005663]'>Upload the payment proof for confirm your appointment</p>
                                     <div className="relative mt-5 w-[200] h-[140] rounded-xl overflow-hidden border border-gray-200">
                                         <Image
                                             required
@@ -282,6 +276,7 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
                             Select Doctor
                             <div className='w-[40] mt-1 h-[5] group-hover:w-[70] duration-200 bg-[#00B4D8] rounded-full'></div>
                         </h1>
+                        <p className='my-2 font-semibold text-xl text-gray-800 border border-gray-300 p-3 '><span className='text-[#005c6e] font-bold'>Timing</span> - 9.00am to 6.00pm</p>
                         {allDoctors.map((item, index) => {
                             return (
                                 <div key={index} onClick={() => setSelectedDoctor(item)} className={`border-gray-300 py-4 hover:bg-[#0b1c2d] hover:text-white  duration-300 capitalize px-6 cursor-pointer border rounded-xl my-4 group flex items-center justify-between`}>
