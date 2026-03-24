@@ -32,7 +32,7 @@ export default function AboutClient() {
 
                     <Image
                         alt="hospital banner image"
-                        src="/banner.jpg"
+                        src="/about.png"
                         fill
                         className="object-cover"
                         priority

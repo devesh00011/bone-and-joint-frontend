@@ -132,7 +132,7 @@ export default function Footer() {
                             </p>
 
                             <p className="text-sm text-gray-400">
-                                🕒 OPD: Mon-Sat (9:00 AM - 7:00 PM)
+                                🕒 OPD: Mon-Sat (9:00 AM - 6:00 PM)
                             </p>
 
                             <p className="text-sm text-red-100 font-semibold">
