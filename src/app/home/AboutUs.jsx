@@ -6,38 +6,37 @@ import Link from 'next/link'
 export default function AboutUs() {
 
     const Highlights = [
-        'Experienced orthopaedic specialists',
-        'Advanced surgical & non-surgical care',
-        'Patient-centric treatment approach',
-        ' 24/7 emergency & trauma care'
+        'Experienced orthopaedic ',
+        'Advanced surgical',
+        'Patient-centric treatment ',
+        ' 24/7 emergency care'
     ]
 
     return (
         <section className="w-full  lg:py-24 pb-5 bg-[#0b1c2d] lg:px-6 px-4">
             <div className="max-w-330 mx-auto">
 
-                <div className="grid grid-cols-1 lg:grid-cols-[47%_auto] gap-10 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-[60%_auto] lg:gap-10 gap-5 items-center">
 
                     {/* LEFT IMAGE */}
-                    <div className="relative w-full lg:h-[430] h-[350] overflow-hidden shadow-lg">
+                    <div className="relative w-full lg:my-0 my-10 lg:h-[430] h-[400] overflow-hidden shadow-lg">
                         <Image
-                            quality={75}
-                            src="/about.jpg"   // you can change later
+                            src="/about.png"   // you can change later
                             alt="Bone and Joint Hospital Jodhpur"
                             fill
-                            className="object-cover object-center rounded"
+                            className="object-cover lg:object-center object-left rounded"
                         />
                     </div>
 
                     {/* RIGHT CONTENT */}
                     <div className=''>
                         <h2 className="text-3xl md:text-4xl hover:text-[#00B4D8] duration-300 font-extrabold text-white">
-                            About Bone & Joint Hospital
+                            About Us
                         </h2>
 
-                        <div className="w-16 h-1 bg-[#00B4D8] mt-4 rounded-full" />
+                        <div className="w-16 h-1 bg-[#00B4D8] mt-1 rounded-full" />
 
-                        <p className="mt-6 text-gray-200 lg:text-justify leading-relaxed tracking-widest">
+                        <p className="mt-3 text-gray-200 lg:text-justify leading-relaxed tracking-widest">
                             Bone & Joint Hospital is a trusted orthopaedic care center in Jodhpur,
                             dedicated to providing advanced treatment for bone, joint, and spine
                             conditions. With decades of experience, we combine medical expertise
@@ -46,7 +45,7 @@ export default function AboutUs() {
 
 
                         {/* HIGHLIGHTS */}
-                        <div className="mt-8 grid sm:grid-cols-2 grid-cols-1 gap-x-3 gap-y-5">
+                        <div className="mt-5 grid sm:grid-cols-2 grid-cols-1 gap-y-2">
 
                             {Highlights.map((item, index) => {
                                 return (
@@ -62,7 +61,7 @@ export default function AboutUs() {
                         </div>
 
 
-                        {/* CTA */}
+
                         <div className="mt-10">
                             <Link href="/about">
                                 <button className="bg-[#00B4D8] hover:bg-[#00B4D8] text-white px-8 py-3 rounded-full text-sm font-semibold duration-200">

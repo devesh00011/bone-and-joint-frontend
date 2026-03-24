@@ -38,9 +38,9 @@ export default function AboutClient() {
                         priority
                     />
 
-                    <div className="absolute inset-0 bg-[#0B1C2D]/95"></div>
+                    <div className="absolute inset-0"></div>
 
-                    <div className="absolute inset-0 flex lg:py-20 py-10">
+                    {/* <div className="absolute inset-0 flex lg:py-20 py-10">
                         <div className="max-w-[1320] mx-auto lg:px-0 px-4 w-full">
 
                             <h2 className="text-4xl md:text-5xl font-extrabold text-white">
@@ -72,7 +72,7 @@ export default function AboutClient() {
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
             </section>

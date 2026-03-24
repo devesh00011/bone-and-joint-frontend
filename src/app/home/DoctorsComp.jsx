@@ -49,7 +49,7 @@ export default function DoctorsComp() {
                         return (
                             <div
                                 key={index}
-                                className="rounded-3xl border border-gray-100 shadow-sm
+                                className="rounded-3xl border-2 border-gray-300 shadow-sm
         hover:shadow-xl hover:-translate-y-3
         duration-300 w-full h-[300] bg-white p-8 relative group"
                             >
