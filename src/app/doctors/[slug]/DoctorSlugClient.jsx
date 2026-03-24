@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import DoctorNotFound from "./DoctorNotFound";
 import BookAppointMentModel from "@/app/common/BookAppointMentModel";
 import React from 'react'
+import { MobileNumber } from "@/app/WebSensitives/ContactSensitives";
 
 export default function DoctorSlugClient() {
     const { slug } = useParams();
@@ -67,7 +68,7 @@ export default function DoctorSlugClient() {
                                     alt={name}
                                     width={400}
                                     height={400}
-                                    className="rounded-2xl shadow-2xl relative z-10 w-full h-[400] object-cover"
+                                    className="rounded-2xl shadow-2xl relative z-10 w-full lg:h-[600] sm:h-[500] h-[300] object-cover"
                                 />
                             </div>
 
@@ -103,9 +104,9 @@ export default function DoctorSlugClient() {
                                         Book Appointment
                                     </button>
 
-                                    <button className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#0B1C2D] transition">
+                                    <Link href={`tel:${MobileNumber}`}><button className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#0B1C2D] transition">
                                         Contact Now
-                                    </button>
+                                    </button></Link>
                                 </div>
                             </div>
                         </div>
