@@ -148,7 +148,7 @@ export const Doctors = [
         ],
 
         services: [
-            'Bone & Joint Pain Treatment',
+            'Bone and Joint Pain Treatment',
             'Fracture Care',
             'Rehabilitation Support'
         ],

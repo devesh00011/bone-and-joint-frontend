@@ -27,7 +27,7 @@ export default function BookAppointmentCTA() {
           </h2>
 
           <p className="mt-4 text-blue-100">
-            Get expert orthopaedic care from experienced bone & joint specialists.
+            Get expert orthopaedic care from experienced Bone and Joint specialists.
             Your journey to a pain-free life starts here.
           </p>
 

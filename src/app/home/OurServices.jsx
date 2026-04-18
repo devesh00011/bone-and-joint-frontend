@@ -54,8 +54,8 @@ export default function OurServices() {
 
                 {/* Section Header */}
                 <div className="lg:text-start text-center lg:mb-16 mb-8">
-                    <Link href={'/services'}><h2 className="text-4xl hover:text-[#00616b] duration-300 cursor-pointer md:text-5xl font-extrabold text-gray-800">
-                        Our Services
+                    <Link href={'/treatments'}><h2 className="text-4xl hover:text-[#00616b] duration-300 cursor-pointer md:text-5xl font-extrabold text-gray-800">
+                         Our Treatments
                     </h2></Link>
                     <div className="w-16 h-1 bg-[#00B4D8] lg:mx-0 mx-auto mt-4 rounded-full" />
                     <p className="mt-5 text-gray-600 max-w-xl lg:mx-0 mx-auto">
@@ -167,7 +167,7 @@ function CustomCard({ item }) {
   transition-all duration-500
 ">
                     <Link
-                        href={`/services/${service_slug}`}
+                        href={`/treatments/${service_slug}`}
                         className="inline-block mt-4 px-5 py-2 rounded-full font-semibold
                      bg-white text-black hover:text-white hover:bg-[#26425e]
                      shadow-md transition-all duration-300"

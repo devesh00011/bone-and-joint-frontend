@@ -19,9 +19,9 @@ export default function AboutUs() {
                 <div className="grid grid-cols-1 lg:grid-cols-[60%_auto] lg:gap-10 gap-5 items-center">
 
                     {/* LEFT IMAGE */}
-                    <div className="relative w-full lg:my-0 my-10 lg:h-[430] h-[400] overflow-hidden shadow-lg">
+                    <div className="relative w-full lg:my-0 my-10 lg:h-[330] h-[200] overflow-hidden shadow-lg">
                         <Image
-                            src="/about.png"   // you can change later
+                            src="/aboutus.jpeg"   // you can change later
                             alt="Bone and Joint Hospital Jodhpur"
                             fill
                             className="object-cover lg:object-center object-left rounded"
@@ -36,8 +36,8 @@ export default function AboutUs() {
 
                         <div className="w-16 h-1 bg-[#00B4D8] mt-1 rounded-full" />
 
-                        <p className="mt-3 text-gray-200 lg:text-justify leading-relaxed tracking-widest">
-                            Bone & Joint Hospital is a trusted orthopaedic care center in Jodhpur,
+                        <p className="mt-3 text-sm text-gray-200 lg:text-justify leading-relaxed tracking-widest">
+                            Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
                             dedicated to providing advanced treatment for bone, joint, and spine
                             conditions. With decades of experience, we combine medical expertise
                             with compassionate care to help patients regain mobility and live pain-free lives.
@@ -51,7 +51,7 @@ export default function AboutUs() {
                                 return (
                                     <div key={index} className="flex cursor-default items-start gap-3 group">
                                         <span className="w-2.5 h-2.5 mt-2 bg-[#00B4D8] rounded-full " />
-                                        <span className="text-gray-50 lg:text-[15px] text-sm group-hover:text-[#00B4D8] duration-300">
+                                        <span className="text-gray-50 lg:text-[13px] text-sm group-hover:text-[#00B4D8] duration-300">
                                             {item}
                                             <div className='w-[30%] group-hover:w-[50%] group-hover:bg-[#00B4D8] duration-300 h-[2.5] mt-2 rounded-full bg-white'></div>
                                         </span>
@@ -60,11 +60,9 @@ export default function AboutUs() {
                             })}
                         </div>
 
-
-
-                        <div className="mt-10">
+                        <div className="mt-3">
                             <Link href="/about">
-                                <button className="bg-[#00B4D8] hover:bg-[#00B4D8] text-white px-8 py-3 rounded-full text-sm font-semibold duration-200">
+                                <button className="bg-[#00B4D8] hover:bg-[#00B4D8] text-white px-8 py-1.5 cursor-pointer hover:brightness-90  rounded-full text-sm font-semibold duration-200">
                                     Know More About Us
                                 </button>
                             </Link>

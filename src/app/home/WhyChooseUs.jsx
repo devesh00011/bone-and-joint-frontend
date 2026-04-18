@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const countersData = [
     { value: 20, suffix: '+', label: 'Years of Excellence' },
-    { value: 10000, suffix: '+', label: 'Happy Patients' },
+    { value: 80, suffix: 'k+', label: 'Happy Patients' },
     { value: 98, suffix: '%', label: 'Success Rate' },
     { value: 24, suffix: '/7', label: 'Emergency Support' },
 ]

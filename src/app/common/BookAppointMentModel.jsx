@@ -104,7 +104,7 @@ export default function BookAppointMentModel({ appointmentModel, setAppointmentM
                 <div className='flex items-center justify-between py-3'>
                     <Link href="/">
                         <p className="text-2xl font-extrabold text-cyan-500">
-                            Bone & Joint Hospital
+                            Bone and Joint Hospital
                         </p>
                     </Link>
                     <span onClick={() => setAppointmentModel(false)} className="cursor-pointer">Close</span>

@@ -29,8 +29,9 @@ export default function DoctorClient() {
                         <thead className="bg-[#0B2436] text-white">
                             <tr className=''>
                                 <th className="px-10 py-4">Doctor</th>
-                                <th className="px-10 py-4 ">Specialization</th>
-                                <th className=" px-10 py-4">About</th>
+<th className="px-10 py-4 hidden md:table-cell">
+  Specialization
+</th>                                <th className="px-10 py-4 hidden md:table-cell">About</th>
                                 <th className="px-10 py-4 text-center">Profile</th>
                             </tr>
                         </thead>
@@ -57,25 +58,23 @@ export default function DoctorClient() {
                                     </td>
 
                                     {/* Specialization */}
-                                    <td className=" px-10 py-6 ">
+                                    <td className=" px-10 py-6 hidden md:table-cell">
                                         {item.primary_specialization}
                                     </td>
 
                                     {/* Description */}
-                                    <td className=" px-10 py-6 text-sm text-gray-600">
+                                    <td className=" px-10 py-6 hidden md:table-cell text-sm text-gray-600">
                                         {item.short_description}
                                     </td>
 
                                     {/* View Button */}
                                     <td className="px-10 py-6 text-center">
-                                        {index < 4 && (
-                                            <Link
-                                                href={`/doctors/${item.slug}`}
-                                                className="bg-[#00B4D8] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#0096c7] transition"
-                                            >
-                                                View
-                                            </Link>
-                                        )}
+                                        <Link
+                                            href={`/doctors/${item.slug}`}
+                                            className="bg-[#00B4D8] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#0096c7] transition"
+                                        >
+                                            View
+                                        </Link>
                                     </td>
 
                                 </tr>

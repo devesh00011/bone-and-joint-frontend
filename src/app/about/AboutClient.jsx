@@ -28,13 +28,13 @@ export default function AboutClient() {
             <section className="w-full bg-white">
 
                 {/* ================= HERO SECTION ================= */}
-                <div className="relative w-full h-screen">
+                <div className="relative w-full lg:h-[85vh] sm:h-[50vh] md:h-[55vh] h-[28vh]">
 
                     <Image
                         alt="hospital banner image"
-                        src="/about.png"
+                        src="/aboutus.jpeg"
                         fill
-                        className="object-cover"
+                        className="object-cover w-full h-full"
                         priority
                     />
 
@@ -50,13 +50,13 @@ export default function AboutClient() {
                             <div className="w-20 h-[4] bg-[#00B4D8] mt-4 rounded-full" />
 
                             <p className="mt-6 text-gray-200 max-w-2xl text-justify tracking-wide">
-                                Bone & Joint Hospital is a trusted orthopaedic care center in Jodhpur,
+                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
                                 dedicated to providing advanced treatment for bone, joint, and spine
                                 conditions. With decades of experience, we combine medical expertise
                                 with compassionate care to help patients regain mobility and live pain-free lives.
-                                Bone & Joint Hospital is a trusted orthopaedic care center in Jodhpur,
+                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
                                 dedicated to providing advance
-                                Bone & Joint Hospital is a trusted orthopaedic care center in Jodhpur,
+                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
                                 dedicated to providing advance
                             </p>
 
@@ -80,14 +80,14 @@ export default function AboutClient() {
             <section className="w-full bg-white"> <div className="max-w-[1320] mx-auto px-6 lg:py-20 py-10">
 
                 <h3 className="lg:text-5xl text-4xl  font-bold text-gray-800 text-center lg:mb-14 mb-5">
-                    Our Services
+                    Our Treatments
                 </h3>
 
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
 
                     {services.map((service, index) => (
 
-                        <Link key={index} href={`/services/${service.service_slug}`}>
+                        <Link key={index} href={`/treatments/${service.service_slug}`}>
                             <div className=' shadow-xl group overflow-hidden rounded-xl'>
 
                                 <img src={service.service_image} className='rounded-t-xl group-hover:scale-105 duration-500 cursor-pointer' />

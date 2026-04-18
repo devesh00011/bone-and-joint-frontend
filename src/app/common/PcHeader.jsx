@@ -22,7 +22,7 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
                         </div>
 
                         <p className="text-lg font-extrabold text-white">
-                            Bone & Joint Hospital
+                            Bone and Joint Hospital
                         </p>
 
                     </Link>
@@ -34,7 +34,7 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
                         {[
                             { name: 'Home', path: '/' },
                             { name: 'About Us', path: '/about' },
-                            { name: 'Services', path: '/services' },
+                            { name: 'Treatments', path: '/treatments' },
                             { name: 'Doctors', path: '/doctors' },
                             { name: 'Contact Us', path: '/contact-us' },
                         ].map((item) => (

@@ -8,14 +8,14 @@ const faqsData = [
       'While walk-in patients are welcome, we recommend booking an appointment in advance to reduce waiting time and ensure consultation with the right specialist.',
   },
   {
-    question: 'What conditions are treated at Bone & Joint Hospital?',
+    question: 'What conditions are treated at Bone and Joint Hospital?',
     answer:
       'We specialize in joint replacement, knee and hip problems, spine disorders, fractures, trauma care, sports injuries, and arthritis management.',
   },
   {
     question: 'Is emergency and trauma care available 24/7?',
     answer:
-      'Yes, our hospital provides 24/7 emergency and trauma services to handle fractures, accidents, and urgent orthopaedic conditions.',
+      'Yes, our hospital provides 24/7 emergency and trauma Treatments to handle fractures, accidents, and urgent orthopaedic conditions.',
   },
   {
     question: 'Do you provide non-surgical treatment options?',
@@ -43,7 +43,7 @@ export default function Faqs() {
           </h2>
           <div className="w-16 h-1 bg-[#00B4D8] mx-auto mt-4 rounded-full" />
           <p className="mt-5 text-gray-600 ">
-            Clear answers to common questions about our orthopaedic services and care
+            Clear answers to common questions about our orthopaedic treatments and care
           </p>
         </div>
 

@@ -31,13 +31,13 @@ export default function Hero() {
                 </div>
 
                 <div className='relative z-20 flex items-center lg:min-h-[90vh] min-h-screen'>
-                    <div className='max-w-7xl mx-auto w-full px-6 lg:px-0 lg:py-16 py-8'>
+                    <div className='max-w-7xl mx-auto w-full px-6 lg:px-0'>
 
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
 
                             {/* LEFT CONTENT */}
                             <div className='text-left space-y-6'>
-
+            
                                 <span className='inline-block bg-white/20 backdrop-blur-md px-4 py-1 rounded-full text-sm tracking-wide'>
                                     Advanced Orthopaedic Excellence
                                 </span>
@@ -77,7 +77,7 @@ export default function Hero() {
                                         <p className='text-sm text-white/80'>Years Experience</p>
                                     </div>
                                     <div>
-                                        <p className='text-2xl font-bold'>10k+</p>
+                                        <p className='text-2xl font-bold'>80k+</p>
                                         <p className='text-sm text-white/80'>Patients Treated</p>
                                     </div>
                                     <div>

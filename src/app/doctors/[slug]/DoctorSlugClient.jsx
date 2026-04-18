@@ -120,7 +120,7 @@ export default function DoctorSlugClient() {
                 <section className="bg-white py-20">
                     <div className="max-w-[1320] mx-auto px-6">
                         <h2 className="text-4xl font-bold text-center text-gray-800  mb-12">
-                            Services Offered by <span className="text-[#00AED0]">{name}</span>
+                            Treatments Offered by <span className="text-[#00AED0]">{name}</span>
                         </h2>
 
                         <div className="grid md:grid-cols-4 gap-6">
