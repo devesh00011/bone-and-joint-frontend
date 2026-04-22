@@ -77,11 +77,11 @@ export default function Footer() {
                                     Contact Us
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href="/blogs" className="hover:text-[#00B4D8] duration-200">
                                     Blogs
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
 

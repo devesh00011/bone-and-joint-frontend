@@ -51,7 +51,7 @@ export default function DoctorsComp() {
                                 key={index}
                                 className="rounded-3xl border-2 border-gray-300 shadow-sm
         hover:shadow-xl hover:-translate-y-3
-        duration-300 w-full h-[300] bg-white p-8 relative group"
+        duration-300 w-full h-[360] bg-white p-8 relative group"
                             >
                                 {/* Avatar */}
                                 <Image
@@ -62,14 +62,14 @@ export default function DoctorsComp() {
                                     className="absolute z-20 top-0 left-0 w-full h-full rounded-2xl object-cover transition-all duration-300 ease-out"
                                 />
 
-                                <div className="bg-linear-to-t from-black via-black/70 to-transparent w-full h-full absolute top-0 left-0 lg:opacity-0 group-hover:opacity-100 duration-200 rounded-2xl z-20"></div>
+                                <div className="bg-linear-to-t from-black via-black/30 to-transparent w-full h-full absolute top-0 left-0 lg:opacity-0 group-hover:opacity-100 duration-200 rounded-2xl z-20"></div>
 
                                 <div className="absolute lg:bottom-6 lg:left-6 bottom-6 left-1/3 -translate-x-20 z-30 lg:opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out text-white">
-                                    <h2 className="text-xl font-extrabold">{name}</h2>
-                                    <p className="text-md text-[#00B4D8] font-semibold "> {primary_specialization}</p>
+                                    <h2 className="text-md font-extrabold">{name}</h2>
+                                    <p className="text-xs text-[#00B4D8] "> {primary_specialization}</p>
 
                                     <Link href={`/doctors/${slug}`}>
-                                        <button className="bg-white text-black font-semibold rounded-full px-3 text-sm py-1 hover:bg-[#004350] mt-2 duration-300 hover:text-white cursor-pointer">
+                                        <button className="bg-white text-black font-semibold rounded-full px-3 text-sm py-0.5 hover:bg-[#004350] mt-2 duration-300 hover:text-white cursor-pointer">
                                             View Details
                                         </button>
                                     </Link>
