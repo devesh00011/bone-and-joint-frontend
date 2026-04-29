@@ -1,26 +1,93 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MobileNumber } from '../WebSensitives/ContactSensitives'
+import { get_api, post_api } from '../api_helper/api_helper'
+import Loading from '../loading'
 
 export default function BlogsClient() {
 
 
-    const data = [
-        'Education',
-        'Technology',
-        'Programming',
-        'Web Development',
-        'Career',
-        'Business',
-        'Finance',
-        'Health',
-        'Lifestyle',
-        'Travel',
-        'Food'
-    ]
-    const [selectedCategory, setSelectedCategory] = useState('all')
+
+    const [selectedCategory, setSelectedCategory] = useState(null)
+    const [loading, setLoading] = useState(false)
+
+    const [blogLoading, setBlogLoading] = useState(false)
+
+    const [allCategories, setAllCategories] = useState([])
+
+    const [BlogsByCategory, setBlogsByCategory] = useState([])
+
+    const fetchAllCategories = async () => {
+        try {
+            setLoading(true)
+            const response = await get_api({
+                params: null,
+                path: 'blog/view-category'
+            })
+            if (response.status == 200) {
+                setAllCategories(response.data.result)
+            }
+        } catch (error) {
+            console.log(error.message)
+            setAllCategories([])
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
+    console.log('BlogsByCategory', BlogsByCategory)
+
+
+    const fetchBlogById = async () => {
+        try {
+            setBlogLoading(true)
+
+            if (selectedCategory && selectedCategory !== 'all') {
+                const response = await post_api({
+                    body: {},
+                    params: selectedCategory.toString(),
+                    path: 'blog/fetch-by-category'
+                })
+                if (response.status == 200) {
+                    setBlogsByCategory(response.data.blogs)
+                }
+                else {
+                    setBlogsByCategory([])
+                }
+            }
+            else {
+                const response = await get_api({
+                    params: null,
+                    path: 'blog/view-blog'
+                })
+                if (response.status == 200) {
+                    setBlogsByCategory(response.data.blogs)
+                }
+            }
+
+        } catch (error) {
+            if (error.response.status == 404) {
+                setBlogsByCategory([])
+            }
+            console.log(error || 'Cannot Fetch Blogs By Id')
+        }
+        finally {
+            setBlogLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchBlogById()
+    }, [selectedCategory])
+
+
+    useEffect(() => {
+        fetchAllCategories()
+    }, [])
+
     return (
         <div className='w-full h-full'>
 
@@ -33,12 +100,24 @@ export default function BlogsClient() {
                                 <h2 className='relative text-2xl font-semibold text-gray-800 mb-5'>Categories
                                     <div className='absolute top-full left-0 w-12 h-1 rounded-full bg-[#00B4D8]'></div>
                                 </h2>
-                                <button onClick={() => setSelectedCategory('all')} className={`${selectedCategory == 'all' ? 'bg-[#00B4D8] text-white border-transparent' : 'bg-white text-bg-[#00B4D8] '} hover:bg-[#00B4D8] hover:text-white  rounded-full cursor-pointer border-2 border-gray-400 hover:scale-[1.1] duration-100 px-4 py-1 hover:border-transparent border-bg-[#00B4D8] m-2`}>All</button>
-                                {data.map((item, index) => {
-                                    return (
-                                        <button onClick={() => setSelectedCategory(item)} key={index} className={`${selectedCategory == item ? 'bg-[#00B4D8] text-white border-transparent' : 'bg-white text-bg-[#00B4D8] '} rounded-full cursor-pointer hover:bg-[#00B4D8] hover:text-white duration-100 border-2 border-gray-400 px-4 py-1 shadow-md hover:scale-[1.1] hover:border-transparent border-bg-[#00B4D8] m-2.5`}>{item}</button>
-                                    )
-                                })}
+
+                                {/* <button onClick={() => setSelectedCategory('all')} className={`
+                                     ${selectedCategory == 'all' ? 'bg-[#00B4D8] text-white border-transparent' : 'bg-white text-bg-[#00B4D8] '}
+                                     hover:bg-[#00B4D8] hover:text-white  rounded-full cursor-pointer border-2 border-gray-200 hover:scale-[1.1] duration-100 px-4 py-1 hover:border-transparent border-bg-[#00B4D8] m-2`}>All</button> */}
+
+                                {loading ? <button>Loading...</button>
+                                    :
+
+                                    allCategories?.length == 0 ?
+                                        <button>No Categories Found</button>
+                                        :
+
+                                        allCategories?.map((item, index) => {
+                                            return (
+                                                <button onClick={() => setSelectedCategory(item.id)} key={index} className={`${selectedCategory == item.id ? 'bg-[#00B4D8] text-white border-transparent' : 'bg-white text-bg-[#00B4D8] '} rounded-full cursor-pointer hover:bg-[#00B4D8] hover:text-white duration-100 border-2 border-gray-200 px-4 py-1 shadow-md hover:scale-[1.1] hover:border-transparent border-bg-[#00B4D8] m-2.5`}>{item.category_name}</button>
+                                            )
+                                        })
+                                }
 
                             </div>
 
@@ -84,22 +163,61 @@ export default function BlogsClient() {
                         </div>
 
                         <div className='grid sm:grid-cols-2 gap-10'>
-                            {[1, 2, 3, 4, 5, 6].map((item, index) => {
-                                return (
-                                    <Link key={index} href={`/blogs/category/${item}`}><div key={index} className='group border-2 cursor-pointer bg-white border-gray-200 hover:shadow-lg shadow-md rounded-2xl'>
-                                        <div className='w-full h-[190] relative overflow-hidden'>
-                                            <Image alt='blog image' fill src={'/banner.jpg'} className='w-full h-full group-hover:scale-[1.1] duration-300  rounded-t-xl object-cover absolute left-0 top-0' />
+                            {
+
+                                blogLoading ?
+
+                                    <div className='text-lg text-gray-700 font-semibold animate-pulse'>Loading Blogs..</div>
+
+                                    :
+
+                                    BlogsByCategory.length == 0 ?
+                                        <div className="flex flex-col items-center justify-center w-full h-[300px] text-center border-2 border-dashed border-gray-300 rounded-2xl bg-gray-50 p-6">
+
+                                            {/* Icon */}
+                                            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#00B4D8]/10 mb-4">
+                                                <span className="text-3xl">📭</span>
+                                            </div>
+
+                                            {/* Heading */}
+                                            <h2 className="text-2xl font-semibold text-gray-800">
+                                                No Blogs Found
+                                            </h2>
+
+                                            {/* Description */}
+                                            <p className="text-gray-500 mt-2 max-w-md">
+                                                There are currently no blogs available in this category.
+                                                Try selecting a different category or check back later.
+                                            </p>
+
+                                            {/* Button */}
+                                            <button
+                                                onClick={() => setSelectedCategory('all')}
+                                                className="mt-5 px-5 py-2 bg-[#00B4D8] cursor-pointer text-white rounded-full hover:brightness-90 duration-200"
+                                            >
+                                                View All Blogs
+                                            </button>
+
                                         </div>
-                                        <div className='p-5'>
-                                            <h2 className='text-xl font-semibold group-hover:text-[#00B4D8] duration-300'>{index + 1}. What is difference between div and section ?</h2>
-                                            <p className='border-b-2 border-gray-200 pb-1.5 line-clamp-2 group-hover:text-[#00B4D8] duration-300'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta soluta placeat minus, delectus sint veritatis, ipsum id incidunt aperiam.</p>
-                                            <p></p>
-                                            <p className='mt-1.5 text-gray-800 font-semibold'>By Dr. Rajiv Chouhan</p>
-                                            <p className='text-gray-800 font- '>21, March 2026 | <span> 9 min read time</span></p>
-                                        </div>
-                                    </div></Link>
-                                )
-                            })}
+                                        :
+                                        BlogsByCategory?.map((item, index) => {
+                                            return (
+                                                <Link key={index} href={`/blogs/category/${item.blog_slug}`}><div key={index} className='group border-2 cursor-pointer bg-white border-gray-200 hover:shadow-lg shadow-md rounded-2xl'>
+                                                    <div className='w-full h-[190] relative overflow-hidden'>
+                                                        <Image alt='blog image' fill src={item.blog_image} className='w-full h-full group-hover:scale-[1.1] duration-300  rounded-t-xl object-cover absolute left-0 top-0' />
+                                                    </div>
+                                                    <div className='p-5'>
+                                                        <h2 className='text-xl font-semibold group-hover:text-[#00B4D8] duration-300'>{index + 1}. {item.blog_title} ?</h2>
+                                                        <p className='border-b-2 border-gray-200 pb-1.5 line-clamp-2 group-hover:text-[#00B4D8] duration-300'>{item.blog_full_description}</p>
+                                                        <p></p>
+                                                        <p className='mt-1.5 text-gray-800 font-semibold'>By {item.blog_author_name}</p>
+                                                        <p className='text-gray-800 font- '>{item.date_only} | <span> {item.blog_read_time} min read time</span></p>
+                                                    </div>
+                                                </div></Link>
+                                            )
+                                        })
+
+                            }
                         </div>
                     </div>
 
