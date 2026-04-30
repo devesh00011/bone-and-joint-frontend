@@ -21,8 +21,8 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
                             />
                         </div>
 
-                        <p className="text-lg font-extrabold text-white">
-                            Bone and Joint Hospital and Research Centre (Jodhpur) Private Limited
+                        <p className="text-md font-extrabold text-white">
+                            Bone and Joint Hospital and  <br/> Research Centre  (Jodhpur) Private Limited
                         </p>
 
                     </Link>
