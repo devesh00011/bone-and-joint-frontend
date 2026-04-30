@@ -62,7 +62,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
             >
                 <div className="flex items-center justify-between py-8 px-4 border-b border-gray-300">
                     <p className="text-xl font-extrabold">
-                        Bone and Joint 
+                        Bone and Joint Hospital
                     </p>
                     <button onClick={() => setMenuOpen(false)}>
                         <IoClose size={26} />
