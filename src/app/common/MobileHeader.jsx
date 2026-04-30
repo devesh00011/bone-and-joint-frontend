@@ -46,7 +46,7 @@ export default function MobileHeader({ appointmentModel, setAppointmentModel }) 
                         priority
                     />
                     <p className="text-lg font-extrabold">
-                        Bone and Joint Hospital
+                        Bone and Joint Hospital and Research Centre (Jodhpur) Private Limited
                     </p>
                 </Link>
 
