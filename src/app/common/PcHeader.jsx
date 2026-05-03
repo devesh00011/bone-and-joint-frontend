@@ -21,8 +21,9 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
                             />
                         </div>
 
-                        <p className="text-md font-extrabold text-white">
-                            Bone and Joint Hospital and  <br/> Research Centre  (Jodhpur) Private Limited
+                        <p className="text-lg font-extrabold text-white">
+                            Bone and Joint Hospital
+                            {/* and  <br /> Research Centre  (Jodhpur) Private Limited */}
                         </p>
 
                     </Link>
@@ -30,12 +31,13 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
 
 
                 <nav>
-                    <ul className="flex items-center gap-10 text-white text-[16px] font-medium">
+                    <ul className="flex items-center gap-8 text-white text-[16px] font-medium">
                         {[
                             { name: 'Home', path: '/' },
                             { name: 'About Us', path: '/about' },
                             { name: 'Treatments', path: '/treatments' },
                             { name: 'Doctors', path: '/doctors' },
+                            { name: 'Blogs', path: '/blogs' },
                             { name: 'Contact Us', path: '/contact-us' },
                         ].map((item) => (
                             <li key={item.name} className="relative group">

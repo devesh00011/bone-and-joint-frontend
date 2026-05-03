@@ -61,7 +61,7 @@ export default function BlogsClient() {
             else {
                 const response = await get_api({
                     params: null,
-                    path: 'blog/view-blog'
+                    path: 'blog/view-blog-active'
                 })
                 if (response.status == 200) {
                     setBlogsByCategory(response.data.blogs)
@@ -88,6 +88,25 @@ export default function BlogsClient() {
         fetchAllCategories()
     }, [])
 
+    const StoreAllBlogs = async () => {
+        try {
+            const response = await get_api({
+                params: null,
+                path: 'blog/view-blog-active'
+            })
+            if (response.status == 200) {
+                console.log(response.data.blogs)
+                setBlogsByCategory(response.data.blogs)
+
+            }
+            else {
+                setBlogsByCategory([])
+            }
+        } catch (error) {
+            console.log(error.message || 'Cannot Fetch All Blogs')
+        }
+    }
+
     return (
         <div className='w-full h-full'>
 
@@ -101,15 +120,15 @@ export default function BlogsClient() {
                                     <div className='absolute top-full left-0 w-12 h-1 rounded-full bg-[#00B4D8]'></div>
                                 </h2>
 
-                                {/* <button onClick={() => setSelectedCategory('all')} className={`
+                                <button onClick={StoreAllBlogs} className={`
                                      ${selectedCategory == 'all' ? 'bg-[#00B4D8] text-white border-transparent' : 'bg-white text-bg-[#00B4D8] '}
-                                     hover:bg-[#00B4D8] hover:text-white  rounded-full cursor-pointer border-2 border-gray-200 hover:scale-[1.1] duration-100 px-4 py-1 hover:border-transparent border-bg-[#00B4D8] m-2`}>All</button> */}
+                                     hover:bg-[#00B4D8] hover:text-white  rounded-full cursor-pointer border-2 border-gray-200 hover:scale-[1.1] duration-100 px-4 py-1 hover:border-transparent border-bg-[#00B4D8] m-2`}>All</button>
 
                                 {loading ? <button>Loading...</button>
                                     :
 
                                     allCategories?.length == 0 ?
-                                        <button>No Categories Found</button>
+                                        <p className='text-center text-gray-700 animate-pulse'>No Categories Found</p>
                                         :
 
                                         allCategories?.map((item, index) => {
@@ -172,7 +191,7 @@ export default function BlogsClient() {
                                     :
 
                                     BlogsByCategory.length == 0 ?
-                                        <div className="flex flex-col items-center justify-center w-full h-[300px] text-center border-2 border-dashed border-gray-300 rounded-2xl bg-gray-50 p-6">
+                                        <div className="flex flex-col items-center justify-center w-full h-[300] text-center border-2 border-dashed border-gray-300 rounded-2xl bg-gray-50 p-6">
 
                                             {/* Icon */}
                                             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#00B4D8]/10 mb-4">

@@ -17,13 +17,8 @@ export const metadata = {
   title: "Bone and Joint Hospital Jodhpur",
   description: "Best Bones Hospital in Jodhpur including knee replacement",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },              // best support
-      { url: "/favicon.ico", type: "image/png" } // fallback
-    ],
-    apple: "/apple-touch-icon.png",
-  },
-
+    icon: "/favicon.ico"
+  }
 };
 
 export default function RootLayout({ children }) {

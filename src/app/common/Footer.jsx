@@ -72,6 +72,12 @@ export default function Footer() {
                                 </Link>
                             </li>
 
+                             <li>
+                                <Link href="/blogs" className="hover:text-[#00B4D8] duration-200">
+                                    Blogs
+                                </Link>
+                            </li>
+
                             <li>
                                 <Link href="/contact" className="hover:text-[#00B4D8] duration-200">
                                     Contact Us
