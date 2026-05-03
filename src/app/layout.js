@@ -17,7 +17,7 @@ export const metadata = {
   title: "Bone and Joint Hospital Jodhpur",
   description: "Best Bones Hospital in Jodhpur including knee replacement",
   icons: {
-    icon: "/favicon.ico"
+    icon: "/favicon.ico?v=2"
   }
 };
 
