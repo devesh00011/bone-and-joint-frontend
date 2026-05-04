@@ -1,24 +1,60 @@
 'use client'
-import { ServicesData } from '@/app/api_data/Services';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import ServiceNotFound from './ServiceNotFound';
+import Slider from 'react-slick';
+import BookAppointMentModel from "@/app/common/BookAppointMentModel";
 
 export default function ServiceSlugClient() {
 
     const { slug } = useParams();
 
+    const [appointmentModel, setAppointmentModel] = useState(false)
+
+
     const servicesData = useSelector((store) => store.service)
-    const specificData = servicesData.find((item) => item.service_slug === slug)
+    const specificData = servicesData?.find((item) => item.service_slug === slug)
     if (!specificData) return <ServiceNotFound />
 
-    const { service_name, short_description, service_slug, full_details, service_image, meta_title, meta_description, key_benefits, commonly_used } = specificData
+    const { service_name, short_description, service_slug, full_details, service_image, meta_title, meta_description, key_benefits, commonly_used, service_video, service_testimonials } = specificData
+
+    console.log('service content videos', service_video, service_testimonials)
+
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    };
+
 
     return (
         <>
+
+            <BookAppointMentModel appointmentModel={appointmentModel} setAppointmentModel={setAppointmentModel} />
             <section className='w-full h-fit'>
                 <div className='w-full h-full bg-[#0B1C2D] relative'>
                     <Image alt={service_slug} fill quality={75} className='lg:block hidden w-full h-full absolute top-0 left-0 z-10 ' src={'/banner.jpg'} />
@@ -58,7 +94,7 @@ export default function ServiceSlugClient() {
 
                         {/* CTA Buttons */}
                         <div className='flex flex-wrap gap-4'>
-                            <button className='px-6 py-3 bg-[#00B4D8] hover:bg-blue-700 transition rounded-full font-semibold'>
+                            <button onClick={() => setAppointmentModel(true)} className='px-6 py-3 bg-[#00B4D8] hover:bg-blue-700 transition rounded-full font-semibold'>
                                 Book Appointment
                             </button>
 
@@ -71,7 +107,7 @@ export default function ServiceSlugClient() {
 
                 </div>
             </section>
-            <section className="w-full lg:py-16 my-8 bg-gray-50">
+            <section className="w-full lg:pt-16 mt-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4">
 
                     <div className='lg:block hidden'>
@@ -153,9 +189,63 @@ export default function ServiceSlugClient() {
                                     })}
                                 </ul>
                             </div>
+
+                            {service_video &&
+
+                                <div className='p-10'>
+                                    <iframe width="100%" height="450" src={service_video} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+                            }
+
                         </div>
                     </div>
+
+
                 </div>
+
+                {
+                    service_testimonials && service_testimonials !== null &&
+
+                    <div className="w-full mt-12  border-y-8 border-[#00B4D8] lg:py-10 py-6 bg-[#0b1c2d]">
+                        <div className="max-w-[1320] mx-auto lg:px-6 px-4">
+                            <div className="lg:text-start text-center ">
+                                <h2 className="text-4xl text-white duration-300 md:text-5xl font-extrabold ">
+                                    Treatment Testimonials
+                                </h2>
+                                <div className="w-16 h-1 bg-[#00B4D8] lg:mx-0 mx-auto mt-4 rounded-full" />
+                                <p className="mt-5 mb-8 text-white max-w-xl lg:mx-0 mx-auto">
+                                    Watch Our Happy Patient After The Treatment
+                                </p>
+                            </div>
+
+                            <Slider {...settings}>
+                                {
+                                    service_testimonials?.length >= 1 ?
+                                        service_testimonials?.map((item, index) => (
+                                            <div key={index} className="px-4">
+                                                <div className="bg-white shadow-md rounded-xl p-3">
+
+                                                    {/* Video */}
+                                                    <iframe
+                                                        allowfullscreen
+                                                        width="100%"
+                                                        height="400"
+                                                        src={item}
+                                                        title={`Testimonial-${index}`}
+                                                        className=""
+                                                    />
+
+                                                </div>
+                                            </div>
+                                        ))
+                                        :
+                                        <p className="text-xl text-white text-left">No Testimonials Found</p>
+                                }
+                            </Slider>
+                        </div>
+                    </div>
+
+                }
             </section>
 
         </>
