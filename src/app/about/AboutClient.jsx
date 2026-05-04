@@ -1,10 +1,11 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import BookAppointMentModel from '../common/BookAppointMentModel'
 import { MobileNumber, TelePhoneNumber } from '../WebSensitives/ContactSensitives'
+import { get_api } from '../api_helper/api_helper'
 
 
 export default function AboutClient() {
@@ -13,6 +14,46 @@ export default function AboutClient() {
     const Doctors = useSelector((store) => store.doctor)
 
     const services = useSelector((store) => store.service)
+
+    const [aboutUsData, setAboutUsData] = useState(null)
+
+    const fetchAboutUsContent = async () => {
+        try {
+            const response = await get_api({
+                params: null,
+                path: 'about-us/view'
+            })
+
+            if (response.status === 200) {
+                setAboutUsData(response.data.data)
+            } else {
+                setAboutUsData(null)
+            }
+
+        } catch (error) {
+            console.log(error.message || 'Api Error')
+        }
+    }
+
+    useEffect(() => {
+        fetchAboutUsContent()
+    }, [])
+
+    // ✅ Safe fallback values
+    const description = aboutUsData?.description || "Loading content..."
+    const pc_image = aboutUsData?.pc_image || "/aboutus.jpeg"
+    const mobile_image = aboutUsData?.mobile_image || "/aboutus.jpeg"
+
+    const points = aboutUsData?.points?.length
+        ? aboutUsData.points
+        : [
+            'Experienced orthopaedic care',
+            'Advanced surgical procedures',
+            'Patient-centric treatment',
+            '24/7 emergency care'
+        ]
+
+    console.log(aboutUsData)
 
     return (
         <>
@@ -28,54 +69,71 @@ export default function AboutClient() {
             <section className="w-full bg-white">
 
                 {/* ================= HERO SECTION ================= */}
-                <div className="relative w-full lg:h-[85vh] sm:h-[50vh] md:h-[55vh] h-[28vh]">
 
+                {/* PC IMAGE */}
+                <div className="hidden md:block relative w-full h-[80vh] overflow-hidden shadow-lg rounded">
                     <Image
-                        alt="hospital banner image"
-                        src="/aboutus.jpeg"
+                        src={pc_image}
+                        alt="About Hospital"
                         fill
-                        className="object-cover w-full h-full"
-                        priority
+                        className="object-cover object-center"
                     />
-
-                    <div className="absolute inset-0"></div>
-
-                    {/* <div className="absolute inset-0 flex lg:py-20 py-10">
-                        <div className="max-w-[1320] mx-auto lg:px-0 px-4 w-full">
-
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-                                About <span className="text-[#00B4D8]">Us</span>
-                            </h2>
-
-                            <div className="w-20 h-[4] bg-[#00B4D8] mt-4 rounded-full" />
-
-                            <p className="mt-6 text-gray-200 max-w-2xl text-justify tracking-wide">
-                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
-                                dedicated to providing advanced treatment for bone, joint, and spine
-                                conditions. With decades of experience, we combine medical expertise
-                                with compassionate care to help patients regain mobility and live pain-free lives.
-                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
-                                dedicated to providing advance
-                                Bone and Joint Hospital is a trusted orthopaedic care center in Jodhpur,
-                                dedicated to providing advance
-                            </p>
-
-                            <div className='flex flex-col sm:flex-row gap-4 my-5 pt-4'>
-                                <button onClick={() => setAppointmentModel(true)} className='bg-white text-[#0096c7] hover:bg-gray-100 px-8 py-4 rounded-full font-semibold shadow-xl hover:scale-105 transition-all duration-300'>
-                                    Book Appointment
-                                </button>
-
-                                <Link href={`tel:${MobileNumber}`}>
-                                    <button className='border-2 text-white border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#0096c7] transition-all duration-300'>
-                                        Contact Us
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
 
+                {/* MOBILE IMAGE */}
+                <div className="block md:hidden relative w-full h-[70vh] overflow-hidden shadow-lg rounded">
+                    <Image
+                        src={mobile_image}
+                        alt="About Hospital"
+                        fill
+                        className="object-cover object-center"
+                    />
+                </div>
+
+
+
+
             </section>
+
+            <div className="lg:py-24 py-12 bg-linear-to-b from-white to-[#f0f9ff] border-b-6 border-cyan-600">
+                <div className="max-w-[1320] mx-auto lg:px-0 px-4 w-full">
+
+                    {/* Title */}
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+                        About <span className="text-[#00B4D8]">Us</span>
+                    </h2>
+
+                    <div className="w-24 h-[4] bg-[#00B4D8] mt-4 rounded-full"></div>
+
+                    {/* Content Box */}
+                    <div className="mt-8 bg-white shadow-md rounded-2xl p-6 md:p-10 border border-gray-100">
+
+                        <p className="text-gray-700 leading-relaxed text-justify text-[15px] md:text-base">
+                            {description}
+                        </p>
+
+                    </div>
+
+                    {/* Buttons */}
+                    <div className='flex flex-col sm:flex-row gap-4 mt-8'>
+
+                        <button
+                            onClick={() => setAppointmentModel(true)}
+                            className='bg-[#00B4D8] text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300'
+                        >
+                            Book Appointment
+                        </button>
+
+                        <Link href={`tel:${MobileNumber}`}>
+                            <button className='border-2 border-[#00B4D8] text-[#00B4D8] px-8 py-4 rounded-full font-semibold hover:bg-[#00B4D8] hover:text-white transition-all duration-300'>
+                                Contact Us
+                            </button>
+                        </Link>
+
+                    </div>
+
+                </div>
+            </div>
 
             <section className="w-full bg-white"> <div className="max-w-[1320] mx-auto px-6 lg:py-20 py-10">
 
@@ -111,28 +169,51 @@ export default function AboutClient() {
             </section>
 
 
-            <section className='w-full bg-white'>
-                <div className="max-w-[1320] mx-auto px-6 lg:py-20 py-10">
+            <section className='w-full bg-[#f0f9ff] border-y-6 border-cyan-700'>
+                <div className="max-w-[1320] mx-auto px-6 lg:py-24 py-12">
 
-                    <h3 className="lg:text-5xl text-4xl font-bold text-gray-800 text-center lg:mb-14 mb-5">
+                    <h3 className="lg:text-5xl text-4xl font-extrabold text-gray-800 text-center mb-4">
                         Our Experience
                     </h3>
 
-                    <div className="grid md:grid-cols-4 gap-10 text-center">
+                    <p className="text-center text-gray-500 mb-14 max-w-2xl mx-auto">
+                        Delivering excellence in orthopaedic care with years of trust, precision, and patient satisfaction.
+                    </p>
+
+                    <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
 
                         {[
-                            { number: "20+", label: "Years of Experience" },
-                            { number: "5000+", label: "Successful Surgeries" },
-                            { number: "50K+", label: "Happy Patients" },
-                            { number: "24/7", label: "Emergency Services" }
+                            { number: "20+", label: "Years of Experience", icon: "⏳" },
+                            { number: "80k+", label: "Happy Patients", icon: "😊" },
+                            { number: "98%", label: "Success Rate", icon: "📈" },
+                            { number: "24/7", label: "Emergency Services", icon: "🚑" }
                         ].map((item, index) => (
-                            <div key={index} className='border-r-4 border-b-2 hover:shadow-md duration-300 py-4 shadow-xs rounded-xl shadow-[#00B4D8] border-[#00B4D8]'>
-                                <h4 className="text-4xl font-bold text-[#00B4D8]">
-                                    {item.number}
-                                </h4>
-                                <p className="mt-3 text-gray-800 font-medium">
-                                    {item.label}
-                                </p>
+                            <div
+                                key={index}
+                                className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                            >
+                                {/* Glow effect */}
+                                <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-[#00B4D8]/20 to-cyan-300/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+
+                                {/* Content */}
+                                <div className="relative z-10 flex flex-col items-center">
+
+                                    <div className="text-3xl mb-3 group-hover:scale-110 transition">
+                                        {item.icon}
+                                    </div>
+
+                                    <h4 className="text-4xl font-extrabold text-[#00B4D8] group-hover:text-cyan-600 transition">
+                                        {item.number}
+                                    </h4>
+
+                                    <p className="mt-3 text-gray-600 font-medium text-sm">
+                                        {item.label}
+                                    </p>
+
+                                    {/* Animated underline */}
+                                    <div className="w-0 group-hover:w-12 h-[2] bg-[#00B4D8] mt-3 transition-all duration-300"></div>
+
+                                </div>
                             </div>
                         ))}
 
@@ -152,30 +233,28 @@ export default function AboutClient() {
                             Our Expert Doctors
                         </h3>
 
-                        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
+                        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
 
                             {Doctors?.map((item, index) => (
                                 <div key={index} className="bg-white rounded-2xl shadow-xl p-6">
-                                    <div className="relative w-full h-[250] rounded-xl overflow-hidden mb-4">
+                                    <div className="relative w-full h-[320] cursor-pointer overflow-hidden mb-4">
                                         <Image
                                             src={item.profile_image}
                                             alt="Doctor"
                                             fill
-                                            className="object-cotain"
+                                            className="object-cotain hover:scale-[1.1] duration-300"
                                         />
                                     </div>
 
                                     <h4 className="text-xl font-bold text-gray-800">
                                         {item.name}
                                     </h4>
-                                    <p className="text-[#00B4D8] mt-2 font-bold text-lg">
+                                    <p className="text-[#00B4D8] mt-2 text-lg">
                                         {item.primary_specialization}
                                     </p>
 
                                     <Link href={`/doctors/${item.slug}`}>
-                                        {index < 4 &&
-                                            <p className='w-full py-1 text-center bg-[#00B4D8] text-white rounded-lg my-2'>View Details</p>
-                                        }
+                                        <p className='w-full py-2 text-center bg-[#00B4D8] hover:bg-cyan-900 duration-200 text-white rounded-lg my-2'>View Details</p>
                                     </Link>
                                 </div>
                             ))}
@@ -201,20 +280,20 @@ export default function AboutClient() {
 
 
 
-            <section className='w-full mb-10'>
-                <div className="bg-[#00B4D8] px-3 py-16 text-center text-white">
-                    <h3 className="text-4xl font-bold mb-6">
+            <section className="bg-linear-to-r from-[#274a6d] to-gray-950 border-t-8 border-cyan-400 py-16 text-center">
+                <div className="max-w-[900] mx-auto px-6">
+                    <h2 className="text-4xl font-bold mb-6 text-white">
                         Ready to Book Your Appointment?
-                    </h3>
+                    </h2>
 
-                    <Link
-                        href="/contact"
-                        className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
-                    >
-                        Contact Us
-                    </Link>
+                    <p className="text-white mb-8">
+                        Experience expert medical care with compassion and precision.
+                    </p>
+
+                    <button onClick={() => setAppointmentModel(true)} className="bg-white text-[#0B1C2D] px-10 py-4 rounded-full font-semibold hover:bg-gray-200 cursor-pointer transition shadow-xl">
+                        Schedule Appointment
+                    </button>
                 </div>
-
             </section>
         </>
 

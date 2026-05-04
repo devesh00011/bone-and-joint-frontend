@@ -176,7 +176,7 @@ export default function DoctorSlugClient() {
 
 
                 {/* CTA Section */}
-                <section className="bg-linear-to-r from-[#274a6d] to-gray-950 py-16 mb-16 text-center">
+                <section className="bg-linear-to-r from-[#274a6d] to-gray-950 py-16 border-b-4 border-cyan-400 text-center">
                     <div className="max-w-[900] mx-auto px-6">
                         <h2 className="text-4xl font-bold mb-6 text-white">
                             Ready to Book Your Appointment?
