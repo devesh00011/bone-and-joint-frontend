@@ -92,9 +92,6 @@ export default function AboutClient() {
                     </div>
                 </div>
 
-
-
-
             </section>
 
             <div className="lg:py-24 py-12 bg-linear-to-b from-white to-[#f0f9ff] border-b-6 border-cyan-600">

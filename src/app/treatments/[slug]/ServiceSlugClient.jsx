@@ -57,7 +57,7 @@ export default function ServiceSlugClient() {
             <BookAppointMentModel appointmentModel={appointmentModel} setAppointmentModel={setAppointmentModel} />
             <section className='w-full h-fit'>
                 <div className='w-full h-full bg-[#0B1C2D] relative'>
-                    <Image alt={service_slug} fill quality={75} className='lg:block hidden w-full h-full absolute top-0 left-0 z-10 ' src={'/banner.jpg'} />
+                    {/* <Image alt={service_slug} fill quality={75} className='lg:block hidden w-full h-full absolute top-0 left-0 z-10 ' src={'/banner.jpg'} /> */}
                     <div className='w-full h-full absolute top-0 left-0 bg-linear-to-r from-black/90 via-black/80 to-transparent z-30' ></div>
                     <div className='max-w-[1320] mx-auto lg:py-28 py-24 lg:px-0 px-4 text-white z-40 relative'>
 
@@ -82,13 +82,13 @@ export default function ServiceSlugClient() {
                         </h1>
 
                         {/* Short Description */}
-                        <p className='max-w-2xl text-gray-300 leading-relaxed mb-8'>
+                        <p className='max-w-2xl whitespace-pre-line text-gray-300 leading-relaxed mb-8'>
                             {short_description}
                         </p>
 
-                        <p className='max-w-2xl text-gray-300 leading-relaxed mb-8'>
+                        {/* <p className='max-w-2xl text-gray-300 leading-relaxed mb-8'>
                             {full_details}
-                        </p>
+                        </p> */}
 
 
 
@@ -157,7 +157,7 @@ export default function ServiceSlugClient() {
                                     {service_name}
                                 </h3>
 
-                                <p className="text-gray-600  text-justify leading-relaxed mb-6">
+                                <p className="text-gray-600 whitespace-pre-line text-justify leading-relaxed mb-6">
                                     {full_details}
                                 </p>
 

@@ -95,7 +95,7 @@ export default function DoctorSlugClient() {
                                     </span>
                                 </div>
 
-                                <p className="text-gray-300 leading-relaxed mb-8">
+                                <p className="text-gray-300 whitespace-pre-line leading-relaxed mb-8">
                                     {full_bio}
                                 </p>
 
