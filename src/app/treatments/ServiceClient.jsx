@@ -34,13 +34,13 @@ export default function ServiceClient() {
                                 {service.service_name}
                             </div>
 
-                            <h3 className="text-md text-gray-800 mb-2">
+                            <h3 className="text-md text-gray-800 line-clamp-2 mb-2">
                                 {service.short_description}
                             </h3>
 
-                            <p className="text-sm text-gray-500">
+                            {/* <p className="text-sm text-gray-500">
                                 {service.full_details}
-                            </p>
+                            </p> */}
 
                             <Link href={`/treatments/${service.service_slug}`}><button className="mt-4 text-md font-medium bg-[#00B4D8]  hover:bg-blue-600 text-white  px-3 py-1.5 cursor-pointer hover:rounded-3xl duration-300">
                                 View Details →
