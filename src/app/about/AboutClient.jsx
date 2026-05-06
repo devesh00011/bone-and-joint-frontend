@@ -81,13 +81,15 @@ export default function AboutClient() {
                 </div>
 
                 {/* MOBILE IMAGE */}
-                <div className="block md:hidden relative w-full h-[70vh] overflow-hidden shadow-lg rounded">
-                    <Image
-                        src={mobile_image}
-                        alt="About Hospital"
-                        fill
-                        className="object-cover object-center"
-                    />
+                <div className='p-5'>
+                    <div className="block md:hidden relative w-full sm:h-[150vh] h-[90vh] overflow-hidden shadow-lg rounded">
+                        <Image
+                            src={mobile_image}
+                            alt="About Hospital"
+                            fill
+                            className="object-cover object-center"
+                        />
+                    </div>
                 </div>
 
 
@@ -108,7 +110,7 @@ export default function AboutClient() {
                     {/* Content Box */}
                     <div className="mt-8 bg-white shadow-md rounded-2xl p-6 md:p-10 border border-gray-100">
 
-                        <p className="text-gray-700 leading-relaxed text-justify text-[15px] md:text-base">
+                        <p className="text-gray-700 whitespace-pre-line leading-relaxed text-justify text-[15px] md:text-base">
                             {description}
                         </p>
 
