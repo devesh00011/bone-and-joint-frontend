@@ -192,7 +192,7 @@ export default function ServiceSlugClient() {
 
                             {service_video &&
 
-                                <div className='p-10'>
+                                <div className='lg:p-6 p-0'>
                                     <iframe width="100%" height="450" src={service_video} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             }
