@@ -169,7 +169,7 @@ export default function Footer() {
                     </p>
 
 
-                    <Link target='_blank' className='hover:text-blue-500 duration-200 text-md text-white' href={'https://www.instagram.com/karniisocial'} ><p>
+                    <Link target='_blank' className='hover:text-blue-500 duration-200 lg:pb-0 pb-10 text-md text-white' href={'https://www.instagram.com/karniisocial'} ><p>
                         Website Design & Marketing by Karnii Social
                     </p></Link>
                 </div>

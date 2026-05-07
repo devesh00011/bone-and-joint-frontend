@@ -58,8 +58,8 @@ export default function Page() {
                 <div>
                     <section className='w-full h-full'>
                         <div className='max-w-330 mx-auto lg:px-6 px-3'>
-                            <div className='w-full h-[400] relative lg:mt-8 mt-4'>
-                                <Image alt='blog image' src={blog_image} fill className='absolute object-cover rounded-xl top-0 left-0 w-full h-full' />
+                            <div className='w-full lg:h-[400] md:h-[250] sm:h-[200] h-[150] relative lg:mt-8 mt-4'>
+                                <Image alt='blog image' src={blog_image} fill className='absolute object-cover rounded-xl top-0 left-0 w-full h-full ' />
                             </div>
                             <div className='my-5 shadow-md p-5 rounded-xl'>
 

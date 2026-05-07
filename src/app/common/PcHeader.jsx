@@ -31,7 +31,7 @@ export default function PcHeader({ appointmentModel, setAppointmentModel }) {
 
 
                 <nav>
-                    <ul className="flex items-center gap-8 text-white text-[16px] font-medium">
+                    <ul className="flex items-center lg:gap-6 text-white text-[16px] font-medium">
                         {[
                             { name: 'Home', path: '/' },
                             { name: 'About Us', path: '/about' },
