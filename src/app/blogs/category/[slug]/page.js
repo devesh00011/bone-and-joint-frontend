@@ -79,7 +79,7 @@ export default function Page() {
                                         const { sub_content } = item
                                         console.log('sub_content', sub_content)
                                         return (
-                                            <section className='my-5 md:p-7 md:border-2 border-gray-50 rounded-xl shadow-md'>
+                                            <section className='my-5 md:p-7 p-5 md:border-2 border-gray-50 rounded-xl shadow-md'>
                                                 <h1 className='lg:text-3xl text-xl group text-gray-900 my-2 font-semibold hover:text-[#00B4D8] duration-300'>
                                                     {item.section_title}
                                                 </h1>
