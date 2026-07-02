@@ -64,6 +64,9 @@ export default function Header() {
     // setPaymentMethod(null)
   }
 
+
+
+
   return (
     <>
       {/* Appointment Modal */}

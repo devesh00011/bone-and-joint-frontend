@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import ServiceNotFound from './ServiceNotFound';
 import Slider from 'react-slick';
 import BookAppointMentModel from "@/app/common/BookAppointMentModel";
+import { MobileNumber } from "@/app/WebSensitives/ContactSensitives";
 
 export default function ServiceSlugClient() {
 
@@ -98,9 +99,10 @@ export default function ServiceSlugClient() {
                                 Book Appointment
                             </button>
 
-                            <Link href={'tel:+918079092775'}><button className='px-6 py-3 cursor-pointer border border-white hover:bg-white hover:text-[#0B1C2D] transition rounded-full font-semibold'>
-                                Call Now
-                            </button></Link>
+                            <Link href={`tel:${MobileNumber}`}>
+                                <button className='px-6 py-3 cursor-pointer border border-white hover:bg-white hover:text-[#0B1C2D] transition rounded-full font-semibold'>
+                                    Call Now
+                                </button></Link>
                         </div>
 
                     </div>

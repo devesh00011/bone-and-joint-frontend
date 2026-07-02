@@ -72,7 +72,7 @@ export default function Footer() {
                                 </Link>
                             </li>
 
-                             <li>
+                            <li>
                                 <Link href="/blogs" className="hover:text-[#00B4D8] duration-200">
                                     Blogs
                                 </Link>
@@ -169,8 +169,8 @@ export default function Footer() {
                     </p>
 
 
-                    <Link target='_blank' className='hover:text-blue-500 duration-200 lg:pb-0 pb-10 text-md text-white' href={'https://www.instagram.com/karniisocial'} ><p>
-                        Website Design & Marketing by Karnii Social
+                    <Link target='_blank' className='hover:text-blue-500 duration-200 lg:pb-0 pb-10 text-md text-white' href={'https://ripplemedia.co.in/'} ><p>
+                        Website Design & Marketing by Ripple Media
                     </p></Link>
                 </div>
             </div >

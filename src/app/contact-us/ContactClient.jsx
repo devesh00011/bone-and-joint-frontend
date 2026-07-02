@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import Loading from '../loading'
 import { post_api } from '../api_helper/api_helper'
-import { MobileNumber } from '../WebSensitives/ContactSensitives'
+import { MobileNumber, TelePhoneNumber } from '../WebSensitives/ContactSensitives'
 
 
 export default function ContactClient() {
@@ -104,8 +104,12 @@ export default function ContactClient() {
 
                     <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
                         <h3 className="text-xl font-bold text-[#0B1C2D] mb-3">📞 Call Us</h3>
-                        <span className="text-gray-600 mb-2 mr-3">0291-2110000</span>
-                        <span className="text-gray-600 mb-2">+91 96940-22500</span>
+                        <Link href={`tel:${TelePhoneNumber}`}>
+                            <span className="text-gray-600 mb-2 mr-3">{TelePhoneNumber}</span>
+                        </Link>
+                        <Link href={`tel:${MobileNumber}`}>
+                            <span className="text-gray-600 mb-2">{MobileNumber}</span>
+                        </Link>
                         <p className="text-gray-600">Emergency: 24/7 Available</p>
                     </div>
 
