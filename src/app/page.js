@@ -5,7 +5,6 @@ import AboutUs from "./home/AboutUs";
 import WhyChooseUs from "./home/WhyChooseUs";
 import Faqs from "./home/Faqs";
 import BookAppointmentCTA from "./home/BookAppointmentCTA";
-import Testimonials from "./home/Testimonials";
 import OurServices from "./home/OurServices";
 import Insurance from "./home/Insurance";
 
@@ -19,7 +18,6 @@ export default function Home() {
       <BookAppointmentCTA />
       <WhyChooseUs />
       {/* <Insurance /> */}
-      <Testimonials />
       <Faqs />
     </div>
   );
