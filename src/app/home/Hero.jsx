@@ -43,9 +43,9 @@ export default function Hero() {
                                 </span>
 
                                 <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight'>
-                                    Western Rajasthan's <br />
+                                    Advanced Robotics <br />
                                     <span className='text-white drop-shadow-lg'>
-                                        First Robotic Knee Replacement Center
+                                        Specialised Orthopaedic Care in Rajasthan
                                     </span>
                                 </h1>
 
