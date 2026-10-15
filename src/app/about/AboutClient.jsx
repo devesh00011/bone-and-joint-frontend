@@ -184,7 +184,7 @@ export default function AboutClient() {
                         {[
                             { number: "20+", label: "Years of Experience", icon: "⏳" },
                             { number: "80k+", label: "Patients Treated", icon: "😊" },
-                            { number: "98%", label: "Success Rate", icon: "📈" },
+                            { number: "Advanced", label: "Robotic Technology", icon: "🤖" },
                             { number: "24/7", label: "Emergency Services", icon: "🚑" }
                         ].map((item, index) => (
                             <div
