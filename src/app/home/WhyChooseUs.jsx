@@ -1,10 +1,16 @@
 'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 
 const countersData = [
-    { value: 20, suffix: '+', label: 'Years of Excellence' },
-    { value: 80, suffix: 'k+', label: 'Happy Patients' },
-    { value: 98, suffix: '%', label: 'Success Rate' },
+    { value: 20, suffix: '+', label: 'Years of Experience' },
+    { value: 80, suffix: 'K+', label: 'Patients Treated' },
+    {
+        value: 'Advanced',
+        suffix: '',
+        label: 'Orthopaedic Technology',
+        isText: true,
+    },
     { value: 24, suffix: '/7', label: 'Emergency Support' },
 ]
 
@@ -24,6 +30,7 @@ export default function WhyChooseUs() {
         )
 
         if (sectionRef.current) observer.observe(sectionRef.current)
+
         return () => observer.disconnect()
     }, [])
 
@@ -43,7 +50,8 @@ export default function WhyChooseUs() {
                     <div className="w-16 h-1 bg-[#00B4D8] lg:mx-0 mx-auto mt-4 rounded-full" />
 
                     <p className="mt-5 text-gray-600 text-sm md:text-base">
-                        Delivering excellence in orthopaedic care with proven experience, modern technology and compassionate treatment.
+                        Providing orthopaedic services with clinical experience,
+                        modern technology and patient focused care.
                     </p>
                 </div>
 
@@ -55,6 +63,7 @@ export default function WhyChooseUs() {
                             value={item.value}
                             suffix={item.suffix}
                             label={item.label}
+                            isText={item.isText || false}
                             start={startCount}
                         />
                     ))}
@@ -65,11 +74,11 @@ export default function WhyChooseUs() {
     )
 }
 
-function CounterCard({ value, suffix, label, start }) {
+function CounterCard({ value, suffix, label, isText, start }) {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        if (!start) return
+        if (!start || isText) return
 
         let current = 0
         const duration = 1600
@@ -77,6 +86,7 @@ function CounterCard({ value, suffix, label, start }) {
 
         const timer = setInterval(() => {
             current += step
+
             if (current >= value) {
                 setCount(value)
                 clearInterval(timer)
@@ -86,7 +96,7 @@ function CounterCard({ value, suffix, label, start }) {
         }, 16)
 
         return () => clearInterval(timer)
-    }, [start, value])
+    }, [start, value, isText])
 
     return (
         <div className="
@@ -98,8 +108,12 @@ function CounterCard({ value, suffix, label, start }) {
             hover:-translate-y-2
             duration-300
         ">
-            <p className="mt-4 text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                {count}{suffix}
+            <p className={`mt-4 font-extrabold text-white tracking-tight ${
+                isText
+                    ? 'text-2xl md:text-3xl'
+                    : 'text-3xl md:text-4xl'
+            }`}>
+                {isText ? value : `${count}${suffix}`}
             </p>
 
             <p className="mt-3 text-white text-sm md:text-base font-medium">
