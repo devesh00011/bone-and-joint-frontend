@@ -128,7 +128,7 @@ export default function ContactClient() {
                     {/* MAP */}
                     <div className="rounded-3xl overflow-hidden shadow-xl">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.7586008340772!2d72.98546407520111!3d26.268660177036864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418e9c7da5d993%3A0x35bb87cede06e60a!2sBONE%20%26%20JOINT%20HOSPITAL!5e1!3m2!1sen!2sin!4v1773070136203!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13605.198128287884!2d72.9598887!3d26.2501888!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418f94213c7c3d%3A0xc6dbd348d6596fc7!2sBONE%20AND%20JOINT%20HOSPITAL%20AND%20RESEARCH%20CENTRE!5e1!3m2!1sen!2sin!4v1792050473252!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             className="min-h-[500]"
