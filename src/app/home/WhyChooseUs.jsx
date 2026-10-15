@@ -8,7 +8,7 @@ const countersData = [
     {
         value: 'Advanced',
         suffix: '',
-        label: 'Orthopaedic Technology',
+        label: 'Robotic Technology',
         isText: true,
     },
     { value: 24, suffix: '/7', label: 'Emergency Support' },
